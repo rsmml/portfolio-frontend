@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Vuex from 'vuex'
 import router from './router'
 
 // Font Awesome
@@ -23,6 +24,9 @@ Vue.use(IconsPlugin)
 
 // Axios
 Vue.use(VueAxios, axios)
+
+// Vuex
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
 
