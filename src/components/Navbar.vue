@@ -1,18 +1,34 @@
 <template>
   <div id="navbar">
-    <nav>
-      <h1 class="animate__animated animate__bounceIn">Hi, I'm an animated title</h1>
-      <font-awesome-icon icon="spinner" />
-      <button @click="click" class="btn btn-primary">Click Me</button>
-      <router-link to="/about">About</router-link>
-      <router-link to="/">Home Page</router-link>
-     </nav>
+    <nav class="d-flex align-items-center justify-content-start text-left">
+      <div class="flex-grow-1">
+        <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3">
+      </div>
+      <ul class="d-flex">
+        <router-link to="/">
+          <li>Work</li>
+        </router-link>
+        <router-link to="/">
+          <li>Work</li>
+        </router-link>
+        <router-link to="/">
+          <li>Work</li>
+        </router-link>
+      </ul>
+      <div id="toggle-mode">
+        <ToggleMode />
+      </div>
+    </nav>
   </div>
 </template>
 
 <script>
+import ToggleMode from './ToggleMode'
 export default {
   name: 'Navbar',
+  components: {
+    ToggleMode
+  },
   methods: {
     click () {
       this.$alert('Hello Vue Simple Alert.')
@@ -22,5 +38,7 @@ export default {
 </script>
 
 <style scoped>
-
+  img.logo-sm{
+    height: 44px;
+  }
 </style>
