@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import router from './router'
 
 // Font Awesome
@@ -18,6 +20,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+// Axios
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
