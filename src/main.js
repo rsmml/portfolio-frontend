@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faBars, faTimes, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Bootstrap
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
@@ -25,7 +26,7 @@ import router from './router'
 import { store } from './store/store'
 
 // Font Awesome
-library.add(faSpinner, faBars, faTimes)
+library.add(faSpinner, faBars, faTimes, faArrowRight, faLinkedinIn, faGithub)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -48,3 +49,10 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+document.getElementById('toggle').checked = true
+// if (localStorage.darkMode === 'true') {
+//   console.log('DarlMode On')
+//   document.getElementById('toggle').checked = true
+// } else {
+//   console.log('DarkMode Off')
+// }

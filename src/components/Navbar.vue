@@ -3,7 +3,7 @@
     <nav class="d-flex align-items-center justify-content-start text-left">
       <div class="flex-grow-1">
         <router-link to="/">
-          <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3">
+          <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
         </router-link>
       </div>
       <div class="menu-link-lg">

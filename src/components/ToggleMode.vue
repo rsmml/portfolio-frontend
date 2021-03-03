@@ -16,6 +16,8 @@ export default {
   methods: {
     changeMode () {
       this.darkMode = !this.darkMode
+      localStorage.darkMode = this.darkMode
+      // console.log(this.darkMode)
     }
   }
 }

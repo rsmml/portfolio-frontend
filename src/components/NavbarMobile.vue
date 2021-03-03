@@ -43,11 +43,20 @@ export default {
     return {
       workActive: false,
       aboutActive: false,
-      contactActive: false
+      contactActive: false,
+      darkMode: ''
     }
   },
   components: {
     ToggleMode
+  },
+  created () {
+    this.checkMode()
+  },
+  methods: {
+    checkMode () {
+      this.darkMode = localStorage.darkMode
+    }
   }
 }
 </script>
@@ -61,12 +70,13 @@ export default {
     z-index: 100;
     height: 100vh;
     padding: 32px 12px;
-    background-color: #adafae;
+    background-color: #3c3a7b;
     transition: 1s transform cubic-bezier(0,.12,.14.1);
   }
   #nav-mobile {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
+    z-index: 1000;
   }
   ul {
     list-style: none;

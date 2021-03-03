@@ -7,8 +7,8 @@
     <Navbar v-if="!mobileView" />
     <transition
       mode="out-in"
-      enter-active-class="animate__animated animate__fadeInLeft"
-      leave-active-class="animate__animated animate__fadeOutLeft"
+      enter-active-class="animate__animated animate__slideInLeft"
+      leave-active-class="animate__animated animate__slideOutLeft"
     >
       <NavbarMobile v-if="showNav" class="mobile-nav"/>
     </transition>
@@ -19,24 +19,27 @@
     >
       <router-view/>
     </transition>
+    <MediaBtns v-if="!mobileView" />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
 import NavbarMobile from '@/components/NavbarMobile'
+import MediaBtns from '@/components/MediaBtns'
 export default {
   name: 'App',
   data () {
     return {
-      darkmode: false,
+      darkmode: '',
       mobileView: false,
       showNav: false
     }
   },
   components: {
     Navbar,
-    NavbarMobile
+    NavbarMobile,
+    MediaBtns
   },
   methods: {
     handleView () {
@@ -54,6 +57,12 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: #4d4d73;
+}
+p {
+  color: white;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,6 +80,7 @@ export default {
 svg.fa-bars, svg.fa-times {
   width: 22px !important;
   height: 22px !important;
+  color: white;
 }
 .mobile-nav{
   position: absolute;
@@ -78,12 +88,13 @@ svg.fa-bars, svg.fa-times {
 }
 .move{
   transform: translateX(150px);
-  transition: 0.25s transform cubic-bezier(0,.12,.14,1)
+  /*transition: 0.45s transform cubic-bezier(0,.12,.14,1);*/
+  transition: 0.45s;
 }
-.animate__animated.animate__fadeInLeft{
-  --animate-duration: .25s;
+.animate__animated.animate__slideInLeft{
+  --animate-duration: .45s;
 }
-.animate__animated.animate__fadeOutLeft{
-  --animate-duration: .25s;
+.animate__animated.animate__slideOutLeft{
+  --animate-duration: .45s;
 }
 </style>
