@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="row justify-content-around align-items-center">
     <div class="left-box">
-      <img :src="nameTitle">
+      <SvgTitle id="img-title"/>
       <h2 class="data my-4">FullStack Web Developer</h2>
       <button class="btn btn-primary d-flex align-items-center">
         <p class="mb-0">About Me</p>
@@ -16,6 +16,7 @@
 
 <script>
 import baffle from 'baffle'
+import SvgTitle from './SvgTitle'
 
 export default {
   name: 'Home',
@@ -23,6 +24,9 @@ export default {
     return {
       nameTitle: require('@/assets/name.svg')
     }
+  },
+  components: {
+    SvgTitle
   },
   mounted () {
     // on mounted property start obfuscating
@@ -48,10 +52,6 @@ export default {
       height: 315px;
       width: 315px;
       border-radius: 50%;
-    }
-    img {
-      height: 123px;
-      width: 331px;
     }
     h2 {
       color: white;
@@ -88,10 +88,6 @@ export default {
     #home {
       width: 100vw;
       height: 80vh;
-    }
-    img {
-      height: 211px;
-      width: 570px;
     }
     img.profile {
       height: 385px;
