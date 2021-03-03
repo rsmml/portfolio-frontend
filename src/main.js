@@ -45,6 +45,9 @@ Vue.use(VueAnime)
 
 Vue.config.productionTip = false
 
+// Bus
+export const bus = new Vue()
+
 /* eslint-disable no-new */
 new Vue({
   store: store,
@@ -54,7 +57,7 @@ new Vue({
   template: '<App/>'
 })
 
-localStorage.setItem('darkMode', '')
+localStorage.setItem('darkMode', 'true')
 
 if (localStorage.darkMode === 'true') {
   document.getElementById('toggle').checked = true

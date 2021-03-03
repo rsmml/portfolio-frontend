@@ -1,11 +1,13 @@
 <template>
   <div id="toggle-mode" class="mx-3">
-    <input @click="changeMode" type="checkbox" id="toggle"/>
+    <input @change="changeMode" type="checkbox" id="toggle"/>
     <label for="toggle"></label>
   </div>
 </template>
 
 <script>
+import { bus } from '../main'
+
 export default {
   name: 'ToggleMode',
   data () {
@@ -17,8 +19,10 @@ export default {
     changeMode () {
       if (localStorage.darkMode === 'true') {
         localStorage.darkMode = 'false'
-      } else {
+        bus.$emit('reload', 1)
+      } else if (localStorage.darkMode === 'false') {
         localStorage.darkMode = 'true'
+        bus.$emit('reload', 1)
       }
     }
   }

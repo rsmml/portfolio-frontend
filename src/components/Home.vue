@@ -1,6 +1,6 @@
 <template>
   <div id="home" class="row justify-content-around align-items-center">
-    <NigthMode />
+    <NigthMode :key="componentKey"/>
     <div class="left-box">
       <SvgTitle id="img-title"/>
       <h2 class="data my-4">FullStack Web Developer</h2>
@@ -19,12 +19,14 @@
 import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
 import NigthMode from './NigthMode'
+import { bus } from '../main'
 
 export default {
   name: 'Home',
   data () {
     return {
-      nameTitle: require('@/assets/name.svg')
+      nameTitle: require('@/assets/name.svg'),
+      componentKey: 0
     }
   },
   components: {
@@ -32,13 +34,17 @@ export default {
     NigthMode
   },
   mounted () {
-    // on mounted property start obfuscating
     let b = baffle('.data', {
       characters: '>▒█ <▓█▓/ ▓█>▒█ <<▓ ░█▓▒░ ▓░█░ <█▓ ░█▒█ ░▓▓▒',
       speed: 90
     })
     b.start()
     b.reveal(2500)
+  },
+  updated () {
+    bus.$on('reaload', (data) => {
+      this.componentKey += data
+    })
   }
 }
 </script>

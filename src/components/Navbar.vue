@@ -30,7 +30,7 @@
         </ul>
       </div>
       <div id="toggle-mode">
-        <ToggleMode />
+        <ToggleMode :key="componentKey"/>
       </div>
     </nav>
   </div>
@@ -38,6 +38,7 @@
 
 <script>
 import ToggleMode from './ToggleMode'
+import { bus } from '../main'
 export default {
   name: 'Navbar',
   data () {
@@ -45,11 +46,17 @@ export default {
       workActive: false,
       aboutActive: false,
       contactActive: false,
-      darkMode: 'false'
+      componentKey: 0,
+      darkMode: localStorage.darkMode
     }
   },
   components: {
     ToggleMode
+  },
+  updated () {
+    bus.$on('reload', (data) => {
+      this.componentKey += data
+    })
   }
 }
 </script>

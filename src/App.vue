@@ -4,7 +4,7 @@
       <font-awesome-icon icon="bars" v-if="!showNav" />
       <font-awesome-icon icon="times" v-if="showNav" />
     </div>
-    <Navbar v-if="!mobileView" />
+    <Navbar v-if="!mobileView" :key="componentKey"/>
     <transition
       mode="out-in"
       enter-active-class="animate__animated animate__slideInLeft"
@@ -24,13 +24,16 @@
 import Navbar from '@/components/Navbar'
 import NavbarMobile from '@/components/NavbarMobile'
 import MediaBtns from '@/components/MediaBtns'
+import { bus } from './main'
+
 export default {
   name: 'App',
   data () {
     return {
       darkmode: '',
       mobileView: false,
-      showNav: false
+      showNav: false,
+      componentKey: 0
     }
   },
   components: {
@@ -49,6 +52,11 @@ export default {
   created () {
     this.handleView()
     window.addEventListener('resize', this.handleView)
+  },
+  updated () {
+    bus.$on('reload', (data) => {
+      this.componentKey += data
+    })
   }
 }
 </script>
