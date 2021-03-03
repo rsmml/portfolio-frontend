@@ -53,10 +53,9 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-document.getElementById('toggle').checked = true
-// if (localStorage.darkMode === 'true') {
-//   console.log('DarlMode On')
-//   document.getElementById('toggle').checked = true
-// } else {
-//   console.log('DarkMode Off')
-// }
+
+localStorage.setItem('darkMode', '')
+
+if (localStorage.darkMode === 'true') {
+  document.getElementById('toggle').checked = true
+}

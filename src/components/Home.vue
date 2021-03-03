@@ -1,5 +1,6 @@
 <template>
   <div id="home" class="row justify-content-around align-items-center">
+    <NigthMode />
     <div class="left-box">
       <SvgTitle id="img-title"/>
       <h2 class="data my-4">FullStack Web Developer</h2>
@@ -17,6 +18,7 @@
 <script>
 import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
+import NigthMode from './NigthMode'
 
 export default {
   name: 'Home',
@@ -26,7 +28,8 @@ export default {
     }
   },
   components: {
-    SvgTitle
+    SvgTitle,
+    NigthMode
   },
   mounted () {
     // on mounted property start obfuscating

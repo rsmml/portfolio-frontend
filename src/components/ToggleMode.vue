@@ -10,14 +10,16 @@ export default {
   name: 'ToggleMode',
   data () {
     return {
-      darkMode: false
+      darkMode: localStorage.darkMode
     }
   },
   methods: {
     changeMode () {
-      this.darkMode = !this.darkMode
-      localStorage.darkMode = this.darkMode
-      // console.log(this.darkMode)
+      if (localStorage.darkMode === 'true') {
+        localStorage.darkMode = 'false'
+      } else {
+        localStorage.darkMode = 'true'
+      }
     }
   }
 }

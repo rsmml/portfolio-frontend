@@ -3,7 +3,8 @@
     <nav class="d-flex align-items-center justify-content-start text-left">
       <div class="flex-grow-1">
         <router-link to="/">
-          <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
+          <img v-if="this.darkMode === 'false'" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
+          <img v-if="this.darkMode === 'true'" src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
         </router-link>
       </div>
       <div class="menu-link-lg">
@@ -43,7 +44,8 @@ export default {
     return {
       workActive: false,
       aboutActive: false,
-      contactActive: false
+      contactActive: false,
+      darkMode: 'false'
     }
   },
   components: {

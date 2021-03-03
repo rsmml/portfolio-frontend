@@ -13,9 +13,6 @@
       <NavbarMobile v-if="showNav" class="mobile-nav"/>
     </transition>
     <transition
-      mode="out-in"
-      enter-active-class="animate__animated animate__bounceInDown"
-      leave-active-class="animate__animated animate__bounceOutDown"
     >
       <router-view/>
     </transition>
@@ -59,6 +56,8 @@ export default {
 <style>
 body {
   background-color: #4d4d73;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 p {
   color: white;
