@@ -139,8 +139,26 @@
 </template>
 
 <script>
+import anime from 'animejs'
+
 export default {
-  name: 'SvgTitle'
+  name: 'SvgTitle',
+  mounted () {
+    this.animation()
+  },
+  methods: {
+    animation () {
+      anime({
+        targets: '#img-title path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutQuad',
+        duration: 500,
+        delay: function (el, i) { return i * 10 },
+        direction: 'alternate',
+        loop: false
+      })
+    }
+  }
 }
 </script>
 

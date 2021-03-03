@@ -24,6 +24,8 @@ import Vuex from 'vuex'
 import router from './router'
 // Store
 import { store } from './store/store'
+// Anime.js
+import VueAnime from 'vue-animejs'
 
 // Font Awesome
 library.add(faSpinner, faBars, faTimes, faArrowRight, faLinkedinIn, faGithub)
@@ -38,6 +40,8 @@ Vue.use(VueAxios, axios)
 Vue.use(Vuex)
 // Simple Alert
 Vue.use(VueSimpleAlert)
+// Anime.js
+Vue.use(VueAnime)
 
 Vue.config.productionTip = false
 
