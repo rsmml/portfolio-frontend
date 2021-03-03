@@ -6,26 +6,28 @@
           <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3">
         </router-link>
       </div>
-      <ul class="d-flex">
-        <router-link to="/" class="mx-4">
-          <li @mouseover="workActive = true" @mouseleave="workActive = false">
-            <p :class="{ workActive }">Work</p>
-            <hr :class="{ workActive }">
-          </li>
-        </router-link>
-        <router-link to="/about" class="mx-4">
-          <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
-            <p :class="{ aboutActive }">About</p>
-            <hr :class="{ aboutActive }">
-          </li>
-        </router-link>
-        <router-link to="/#" class="mx-4">
-          <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
-            <p :class="{ contactActive }">Contact</p>
-            <hr :class="{ contactActive }">
-          </li>
-        </router-link>
-      </ul>
+      <div class="menu-link-lg">
+        <ul class="d-flex">
+          <router-link to="/" class="mx-4">
+            <li @mouseover="workActive = true" @mouseleave="workActive = false">
+              <p :class="{ workActive }">Work</p>
+              <hr :class="{ workActive }">
+            </li>
+          </router-link>
+          <router-link to="/about" class="mx-4">
+            <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
+              <p :class="{ aboutActive }">About</p>
+              <hr :class="{ aboutActive }">
+            </li>
+          </router-link>
+          <router-link to="/#" class="mx-4">
+            <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
+              <p :class="{ contactActive }">Contact</p>
+              <hr :class="{ contactActive }">
+            </li>
+          </router-link>
+        </ul>
+      </div>
       <div id="toggle-mode">
         <ToggleMode />
       </div>
@@ -51,31 +53,25 @@ export default {
 </script>
 
 <style scoped>
-
-  /*Small devices (landscape phones, 576px and up)*/
-  @media (min-width: 576px) {
-
+  img.logo-sm{
+    height: 44px;
   }
 
-  /*Medium devices (tablets, 768px and up)*/
-  @media (min-width: 768px) {
-
+  /*Small devices ( < 576px )*/
+  @media (max-width: 576px) {
   }
 
-  /*Large devices (desktops, 992px and up)*/
-  @media (min-width: 992px) {
+  /*Medium devices (tablets, > 577px < 768px )*/
+  @media (min-width: 577px) and (max-width: 768px) {
 
   }
 
   /*Extra large devices (large desktops, 1200px and up)*/
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     #navbar {
       background-color: transparent;
       font-family: 'Poppins', sans-serif;
       font-size: 18px;
-    }
-    img.logo-sm{
-      height: 44px;
     }
     ul {
       list-style: none;
