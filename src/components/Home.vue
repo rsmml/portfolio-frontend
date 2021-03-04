@@ -8,7 +8,7 @@
       </div>
       <h2 v-if="darkMode" class="dark-mode-title data my-4">FullStack Web Developer</h2>
       <h2 v-else class="light-mode-title data my-4">FullStack Web Developer</h2>
-      <button class="btn btn-primary d-flex align-items-center">
+      <button class="btn btn-primary d-flex align-items-center" @click.prevent="open">
         <p class="mb-0">About Me</p>
         <font-awesome-icon icon="arrow-right" />
       </button>
@@ -17,6 +17,7 @@
       <img src="@/assets/profile.png" alt="avatar" class="profile animate__animated animate__fadeIn">
       <!-- <img id="glasses" src="@/assets/glasses.png" alt="avatar" class="animate__animated" :class="{ 'animate__fadeIn' : !darkMode}"> -->
     </div>
+    <About v-if="about"/>
   </div>
 </template>
 
@@ -25,6 +26,7 @@ import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
 import NightMode from './NightMode'
 import SvgTitleDark from './SvgTitleDark'
+import About from './About'
 import { bus } from '../main'
 
 export default {
@@ -38,7 +40,8 @@ export default {
   components: {
     SvgTitle,
     NightMode,
-    SvgTitleDark
+    SvgTitleDark,
+    About
   },
   mounted () {
     let b = baffle('.data', {
@@ -52,10 +55,24 @@ export default {
     bus.$on('reaload', (data) => {
       this.componentKey += data
     })
+    bus.$on('close', (data) => {
+      this.about = data
+    })
+    bus.$on('open', (data) => {
+      this.about = data
+    })
   },
   computed: {
     darkMode () {
       return this.$store.state.darkMode
+    },
+    about () {
+      return this.$store.state.about
+    }
+  },
+  methods: {
+    open () {
+      this.$store.state.about = true
     }
   }
 }
@@ -73,6 +90,7 @@ export default {
       height: 315px;
       width: 315px;
       border-radius: 50%;
+      border: 10px solid white;
     }
     h2 {
       color: white;
@@ -114,6 +132,7 @@ export default {
       height: 385px;
       width: 385px;
       border-radius: 50%;
+      border: 20px solid white;
     }
     h2 {
       color: white;

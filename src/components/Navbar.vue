@@ -9,24 +9,27 @@
       </div>
       <div class="menu-link-lg">
         <ul class="d-flex">
-          <router-link to="/" class="mx-4">
+          <a href="/#" class="mx-4">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
-              <p :class="{ workActive }">Work</p>
+              <p v-if="darkMode" :class="{ workActive }">Work</p>
+              <p v-else :class="{ workActive }" style="color: #1e1f2b;">Work</p>
               <hr :class="{ workActive }">
             </li>
-          </router-link>
-          <router-link to="/about" class="mx-4">
+          </a>
+          <div class="mx-4" @click.prevent="open()">
             <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
-              <p :class="{ aboutActive }">About</p>
+              <p v-if="darkMode" :class="{ aboutActive }">About</p>
+              <p v-else :class="{ aboutActive }" style="color: #1e1f2b;">About</p>
               <hr :class="{ aboutActive }">
             </li>
-          </router-link>
-          <router-link to="/#" class="mx-4">
+          </div>
+          <a href="/#" class="mx-4">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
-              <p :class="{ contactActive }">Contact</p>
+              <p v-if="darkMode" :class="{ contactActive }">Contact</p>
+              <p v-else :class="{ contactActive }" style="color: #1e1f2b;">Contact</p>
               <hr :class="{ contactActive }">
             </li>
-          </router-link>
+          </a>
         </ul>
       </div>
       <div id="toggle-mode" @click="toggleMode()">
@@ -69,6 +72,9 @@ export default {
         this.$store.state.darkMode = true
         el.style.backgroundcolor = '#4d4d73'
       }
+    },
+    open () {
+      this.$store.state.about = true
     }
   }
 }
@@ -145,10 +151,17 @@ export default {
     p.workActive, p.aboutActive, p.contactActive {
       margin-bottom: -3px;
     }
-    svg.fa-moon, svg.fa-sun {
+    svg.fa-moon {
       color: white;
       font-size: 24px;
       margin-right: 24px;
+      transition: 2s ease;
+    }
+    svg.fa-sun {
+      color: #1e1f2b;
+      font-size: 24px;
+      margin-right: 24px;
+      transition: 2s ease;
     }
     #toggle-mode {
       cursor: pointer;

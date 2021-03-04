@@ -55,6 +55,7 @@ export default {
   created () {
     this.handleView()
     window.addEventListener('resize', this.handleView)
+    this.componentKey += 1
   },
   updated () {
     bus.$on('reload', (data) => {

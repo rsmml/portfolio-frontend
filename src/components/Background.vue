@@ -27,6 +27,6 @@ export default {
     background-color: #4d4d73;
   }
   .light {
-    background-color: #eeeeee;
+    background-color: #def5f8;
   }
 </style>
