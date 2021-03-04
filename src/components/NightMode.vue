@@ -4,8 +4,11 @@
     <Stars class="animate__animated animate__flash" :class="{ 'animate__zoomOut' : !darkMode }" />
     <Clouds class="animate__animated animate__heartBeat" :class="{ 'animate__bounceOutDown' : !darkMode }" />
     <Mountains class="animate__animated animate__rubberBand" :class="{ 'animate__fadeOut' : !darkMode }" />
+    <DMountains v-if="!darkMode" class="animate__animated animate__rubberBand" :class="{ 'animate__fadeOut' : darkMode }" />
     <Lake class="animate__animated " :class="{ 'animate__fadeOut' : !darkMode, 'animate__slideInLeft' : darkMode  }" />
+    <DLake v-if="!darkMode" class="animate__animated " :class="{ 'animate__fadeOut' : darkMode, 'animate__slideInLeft' : !darkMode  }" />
     <Grass class="animate__animated " :class="{ 'animate__fadeOut' : !darkMode, 'animate__slideInUp' : darkMode }" />
+    <DGrass v-if="!darkMode" class="animate__animated " :class="{ 'animate__fadeOut' : darkMode, 'animate__slideInUp' : !darkMode }" />
   </div>
 </template>
 
@@ -16,6 +19,9 @@ import Lake from './night/Lake'
 import Moon from './night/Moon'
 import Mountains from './night/Mountains'
 import Stars from './night/Stars'
+import DGrass from './light/DGrass'
+import DLake from './light/DLake'
+import DMountains from './light/DMountains'
 
 export default {
   name: 'NightMode',
@@ -25,7 +31,10 @@ export default {
     Lake,
     Moon,
     Mountains,
-    Stars
+    Stars,
+    DGrass,
+    DLake,
+    DMountains
   },
   computed: {
     darkMode () {
