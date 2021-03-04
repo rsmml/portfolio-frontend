@@ -1,5 +1,5 @@
 <template>
-  <div id="nigth-mode" v-if="localStorage.darkMode === 'true'">
+  <div id="nigth-mode">
     <Moon class="animate__animated animate__bounce"/>
     <Stars class="animate__animated animate__flash"/>
     <Clouds class="animate__animated animate__heartBeat"/>

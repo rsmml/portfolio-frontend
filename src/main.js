@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faBars, faTimes, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faBars, faTimes, faArrowRight, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Bootstrap
@@ -28,7 +28,7 @@ import { store } from './store/store'
 import VueAnime from 'vue-animejs'
 
 // Font Awesome
-library.add(faSpinner, faBars, faTimes, faArrowRight, faLinkedinIn, faGithub)
+library.add(faSpinner, faBars, faTimes, faArrowRight, faLinkedinIn, faGithub, faMoon, faSun)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -57,8 +57,8 @@ new Vue({
   template: '<App/>'
 })
 
-localStorage.setItem('darkMode', 'true')
+// localStorage.setItem('darkMode', 'true')
 
-if (localStorage.darkMode === 'true') {
-  document.getElementById('toggle').checked = true
-}
+// if (localStorage.darkMode === 'true') {
+//   document.getElementById('toggle').checked = true
+// }

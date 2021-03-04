@@ -3,8 +3,8 @@
     <nav class="d-flex align-items-center justify-content-start text-left">
       <div class="flex-grow-1">
         <router-link to="/">
-          <img v-if="this.darkMode === 'false'" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
-          <img v-if="this.darkMode === 'true'" src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
+          <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
+          <img v-else src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
         </router-link>
       </div>
       <div class="menu-link-lg">
@@ -29,15 +29,15 @@
           </router-link>
         </ul>
       </div>
-      <div id="toggle-mode">
-        <ToggleMode :key="componentKey"/>
+      <div id="toggle-mode" @click="toogleMode()">
+        <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
+        <font-awesome-icon icon="sun" v-else/>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
-import ToggleMode from './ToggleMode'
 import { bus } from '../main'
 export default {
   name: 'Navbar',
@@ -47,16 +47,22 @@ export default {
       aboutActive: false,
       contactActive: false,
       componentKey: 0,
-      darkMode: localStorage.darkMode
+      darkMode: true
     }
-  },
-  components: {
-    ToggleMode
   },
   updated () {
     bus.$on('reload', (data) => {
       this.componentKey += data
     })
+  },
+  methods: {
+    toogleMode () {
+      if (this.darkMode) {
+        this.darkMode = false
+      } else {
+        this.darkMode = true
+      }
+    }
   }
 }
 </script>
@@ -129,14 +135,16 @@ export default {
       margin-top: 0px;
       -webkit-transform:rotate(3deg);
     }
-    p.workActive {
+    p.workActive, p.aboutActive, p.contactActive {
       margin-bottom: -3px;
     }
-    p.aboutActive {
-      margin-bottom: -3px;
+    svg.fa-moon, svg.fa-sun {
+      color: white;
+      font-size: 24px;
+      margin-right: 24px;
     }
-    p.contactActive {
-      margin-bottom: -3px;
+    #toggle-mode {
+      cursor: pointer;
     }
   }
 </style>
