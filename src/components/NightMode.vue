@@ -1,5 +1,5 @@
 <template>
-  <div id="nigth-mode">
+  <div id="night-mode">
     <Moon class="animate__animated animate__bounce"/>
     <Stars class="animate__animated animate__flash"/>
     <Clouds class="animate__animated animate__heartBeat"/>
@@ -10,15 +10,15 @@
 </template>
 
 <script>
-import Clouds from './nigth/Clouds'
-import Grass from './nigth/Grass'
-import Lake from './nigth/Lake'
-import Moon from './nigth/Moon'
-import Mountains from './nigth/Mountains'
-import Stars from './nigth/Stars'
+import Clouds from './night/Clouds'
+import Grass from './night/Grass'
+import Lake from './night/Lake'
+import Moon from './night/Moon'
+import Mountains from './night/Mountains'
+import Stars from './night/Stars'
 
 export default {
-  name: 'NigthMode',
+  name: 'NightMode',
   components: {
     Clouds,
     Grass,
@@ -31,13 +31,13 @@ export default {
 </script>
 
 <style scoped>
-  #nigth-mode {
+  #night-mode {
     position: absolute;
     z-index: -10;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    opacity: 0.3;
+    opacity: 0.6;
   }
 </style>

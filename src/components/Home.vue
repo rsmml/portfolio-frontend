@@ -1,6 +1,6 @@
 <template>
   <div id="home" class="row justify-content-around align-items-center">
-    <NigthMode :key="componentKey"/>
+    <NightMode :key="componentKey"/>
     <div class="left-box">
       <SvgTitle id="img-title"/>
       <h2 class="data my-4">FullStack Web Developer</h2>
@@ -18,7 +18,7 @@
 <script>
 import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
-import NigthMode from './NigthMode'
+import NightMode from './NightMode'
 import { bus } from '../main'
 
 export default {
@@ -31,7 +31,7 @@ export default {
   },
   components: {
     SvgTitle,
-    NigthMode
+    NightMode
   },
   mounted () {
     let b = baffle('.data', {
