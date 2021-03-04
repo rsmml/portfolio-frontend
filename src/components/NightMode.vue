@@ -1,11 +1,11 @@
 <template>
   <div id="night-mode">
-    <Moon class="animate__animated animate__bounce"/>
-    <Stars class="animate__animated animate__flash"/>
-    <Clouds class="animate__animated animate__heartBeat"/>
-    <Mountains class="animate__animated animate__rubberBand"/>
-    <Lake class="animate__animated animate__slideInLeft"/>
-    <Grass class="animate__animated animate__slideInUp"/>
+    <Moon class="animate__animated animate__bounce" :class="{ 'animate__bounceOutDown' : !darkMode }" />
+    <Stars class="animate__animated animate__flash" :class="{ 'animate__zoomOut' : !darkMode }" />
+    <Clouds class="animate__animated animate__heartBeat" :class="{ 'animate__bounceOutDown' : !darkMode }" />
+    <Mountains class="animate__animated animate__rubberBand" :class="{ 'animate__fadeOut' : !darkMode }" />
+    <Lake class="animate__animated " :class="{ 'animate__fadeOut' : !darkMode, 'animate__slideInLeft' : darkMode  }" />
+    <Grass class="animate__animated " :class="{ 'animate__fadeOut' : !darkMode, 'animate__slideInUp' : darkMode }" />
   </div>
 </template>
 
@@ -26,6 +26,11 @@ export default {
     Moon,
     Mountains,
     Stars
+  },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
+    }
   }
 }
 </script>

@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    windowWidth: window.innerWidth
+    windowWidth: window.innerWidth,
+    darkMode: true
   },
 
   mutations: {

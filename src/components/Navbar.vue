@@ -29,7 +29,7 @@
           </router-link>
         </ul>
       </div>
-      <div id="toggle-mode" @click="toogleMode()">
+      <div id="toggle-mode" @click="toggleMode()">
         <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
         <font-awesome-icon icon="sun" v-else/>
       </div>
@@ -46,8 +46,7 @@ export default {
       workActive: false,
       aboutActive: false,
       contactActive: false,
-      componentKey: 0,
-      darkMode: true
+      componentKey: 0
     }
   },
   updated () {
@@ -55,12 +54,20 @@ export default {
       this.componentKey += data
     })
   },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
+    }
+  },
   methods: {
-    toogleMode () {
+    toggleMode () {
+      const el = document.body
       if (this.darkMode) {
-        this.darkMode = false
+        this.$store.state.darkMode = false
+        el.style.backgroundcolor = 'white'
       } else {
-        this.darkMode = true
+        this.$store.state.darkMode = true
+        el.style.backgroundcolor = '#4d4d73'
       }
     }
   }

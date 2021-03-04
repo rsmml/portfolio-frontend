@@ -2,15 +2,20 @@
   <div id="home" class="row justify-content-around align-items-center">
     <NightMode :key="componentKey"/>
     <div class="left-box">
-      <SvgTitle id="img-title"/>
-      <h2 class="data my-4">FullStack Web Developer</h2>
+      <div class="title">
+        <SvgTitle id="img-title" v-if="darkMode"/>
+        <SvgTitleDark id="img-title" v-else/>
+      </div>
+      <h2 v-if="darkMode" class="dark-mode-title data my-4">FullStack Web Developer</h2>
+      <h2 v-else class="light-mode-title data my-4">FullStack Web Developer</h2>
       <button class="btn btn-primary d-flex align-items-center">
         <p class="mb-0">About Me</p>
         <font-awesome-icon icon="arrow-right" />
       </button>
     </div>
-    <div class="right-box">
+    <div class="right-box d-flex">
       <img src="@/assets/profile.png" alt="avatar" class="profile animate__animated animate__fadeIn">
+      <!-- <img id="glasses" src="@/assets/glasses.png" alt="avatar" class="animate__animated" :class="{ 'animate__fadeIn' : !darkMode}"> -->
     </div>
   </div>
 </template>
@@ -19,6 +24,7 @@
 import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
 import NightMode from './NightMode'
+import SvgTitleDark from './SvgTitleDark'
 import { bus } from '../main'
 
 export default {
@@ -31,7 +37,8 @@ export default {
   },
   components: {
     SvgTitle,
-    NightMode
+    NightMode,
+    SvgTitleDark
   },
   mounted () {
     let b = baffle('.data', {
@@ -45,6 +52,11 @@ export default {
     bus.$on('reaload', (data) => {
       this.componentKey += data
     })
+  },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
+    }
   }
 }
 </script>
@@ -132,6 +144,15 @@ export default {
     }
     .animate__animated.animate__fadeIn {
       --animate-duration: 3s;
+    }
+    img#glasses {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 20%
+    }
+    h2.light-mode-title {
+      color: #1e1f2b;
     }
   }
 </style>
