@@ -6361,6 +6361,11 @@
   "resolved" "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"nes.css@^2.3.0":
+  "integrity" "sha512-lCFZs9vj3f5RVdbvTL/kSxiYsOARwSeAdJaMNo+bCgmWOO9x8ay7QpT4yQVKHy3r5Dttzd0uqVdpt3fvvx6EpQ=="
+  "resolved" "https://registry.npmjs.org/nes.css/-/nes.css-2.3.0.tgz"
+  "version" "2.3.0"
+
 "netmask@~1.0.4":
   "integrity" "sha1-ICl+idhvb2QA8lDZ9Pa0wZRfzTU="
   "resolved" "https://registry.yarnpkg.com/netmask/-/netmask-1.0.6.tgz"

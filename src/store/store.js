@@ -7,7 +7,12 @@ export const store = new Vuex.Store({
   state: {
     windowWidth: window.innerWidth,
     darkMode: true,
-    about: false
+    about: false,
+    bit: true,
+    play: false,
+    normalMode: true,
+    work: false,
+    dialog: true
   },
 
   mutations: {

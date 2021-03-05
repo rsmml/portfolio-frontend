@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 // Animate.css
 import 'animate.css'
+// Nes.css
+import 'nes.css/css/nes.min.css'
 // Simple Alert
 import VueSimpleAlert from 'vue-simple-alert'
 // Axios

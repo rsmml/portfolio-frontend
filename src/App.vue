@@ -71,12 +71,12 @@ export default {
 </script>
 
 <style>
-  body {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap')
   p {
     color: white;
+  }
+  body {
+    cursor: default;
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
