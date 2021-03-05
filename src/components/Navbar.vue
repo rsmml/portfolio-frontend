@@ -32,7 +32,7 @@
           </a>
         </ul>
       </div>
-      <div id="toggle-mode" @click="toggleMode()">
+      <div id="toggle-mode" @click="toggleMode(), counter()">
         <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
         <font-awesome-icon icon="sun" v-else/>
       </div>
@@ -49,13 +49,15 @@ export default {
       workActive: false,
       aboutActive: false,
       contactActive: false,
-      componentKey: 0
+      componentKey: 0,
+      count: 0
     }
   },
   updated () {
     bus.$on('reload', (data) => {
       this.componentKey += data
     })
+    this.broken()
   },
   computed: {
     darkMode () {
@@ -75,6 +77,18 @@ export default {
     },
     open () {
       this.$store.state.about = true
+    },
+    counter () {
+      this.count += 1
+    },
+    broken () {
+      if (this.count === 4) {
+        this.$confirm('Are you sure?').then(() => {
+          this.count += 1
+        })
+      } else if (this.count === 7) {
+        this.$alert('I warned you..')
+      }
     }
   }
 }
