@@ -18,6 +18,7 @@
       <!-- <img id="glasses" src="@/assets/glasses.png" alt="avatar" class="animate__animated" :class="{ 'animate__fadeIn' : !darkMode}"> -->
     </div>
     <About v-if="about"/>
+    <button class="btn btn-outline-light">Play</button>
   </div>
 </template>
 
@@ -79,6 +80,10 @@ export default {
 </script>
 
 <style scoped>
+  button.btn-outline-light {
+    position: absolute;
+    bottom: 24px;
+  }
   @media (max-width: 767px) {
     #home {
       width: 100%;
