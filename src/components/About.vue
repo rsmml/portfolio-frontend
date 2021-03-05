@@ -48,34 +48,66 @@ export default {
 </script>
 
 <style scoped>
-  #about {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    height: 80vh;
-    width: 80%;
-    background-color: #f3f3f3;
-    box-shadow: 0 2px 50px #1e1f2b;
+  @media (min-width: 768px) and (max-width: 1440px) {
+    #about {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      height: 80vh;
+      width: 80%;
+      background-color: #f3f3f3;
+      box-shadow: 0 2px 50px #1e1f2b;
+    }
+    svg.fa-times {
+      color: #1e1f2b;
+      height: 45px !important;
+      width: 32px !important;
+    }
+    .close-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    p {
+      color: #1e1f2b;
+      text-align: start;
+      text-justify: inter-word;
+      padding: 40px;
+    }
+    h2{
+      padding-left: 40px;
+    }
   }
-  svg.fa-times {
-    color: #1e1f2b;
-    height: 45px !important;
-    width: 32px !important;
-  }
-  .close-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000;
-  }
-  p {
-    color: #1e1f2b;
-    text-align: start;
-    text-justify: inter-word;
-    padding: 40px;
-  }
-  h2{
-    padding-left: 40px;
+  @media (min-width: 1441px) {
+    #about {
+      position: absolute;
+      width: 1240px;
+      height: 768px;
+      background-color: #f3f3f3;
+      box-shadow: 0 2px 50px #1e1f2b;
+    }
+    svg.fa-times {
+      color: #1e1f2b;
+      height: 45px !important;
+      width: 32px !important;
+    }
+    .close-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    p {
+      color: #1e1f2b;
+      text-align: start;
+      text-justify: inter-word;
+      padding: 40px;
+    }
+    h2{
+      padding-left: 40px;
+    }
   }
 </style>

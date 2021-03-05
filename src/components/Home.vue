@@ -123,7 +123,7 @@ export default {
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1440px) {
     #home {
       width: 100vw;
       height: 80vh;
@@ -172,6 +172,63 @@ export default {
     }
     h2.light-mode-title {
       color: #1e1f2b;
+    }
+  }
+  @media (min-width: 1441px) {
+    #home {
+      width: 1440px;
+      justify-content: space-around;
+      align-items: center;
+      margin: auto;
+      height: 80vh;
+    }
+    img.profile {
+      height: 385px;
+      width: 385px;
+      border-radius: 50%;
+      border: 20px solid white;
+    }
+    h2 {
+      color: white;
+      font-size: 30px;
+      text-align: start;
+    }
+    .btn-primary {
+      font-size: 21px;
+      padding: 12px 26px;
+      background: rgb(255,0,110);
+      background: linear-gradient(90deg, rgba(255,0,110,1) 0%, rgba(199,72,127,1) 100%);
+      color: white;
+      border-radius: 0;
+      border: none;
+      transition: 0.3s ease
+    }
+    .btn-primary:not(:disabled):not(.disabled):active {
+      background: rgb(208,13,97);
+      background: linear-gradient(90deg, rgba(208,13,97,1) 0%, rgba(161,68,108,1) 100%);
+    }
+    svg.fa-arrow-right {
+      position: relative;
+      left: 38px;
+    }
+    p {
+      position: relative;
+      left: 10px;
+    }
+    .animate__animated.animate__fadeIn {
+      --animate-duration: 3s;
+    }
+    img#glasses {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 20%
+    }
+    h2.light-mode-title {
+      color: #1e1f2b;
+    }
+    .left-box {
+
     }
   }
 </style>

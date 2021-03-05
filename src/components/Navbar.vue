@@ -82,12 +82,18 @@ export default {
       this.count += 1
     },
     broken () {
-      if (this.count === 4) {
-        this.$confirm('Are you sure?').then(() => {
+      if (this.count === 3) {
+        this.$confirm('Hey! If you keep going you will break my portfolio...').then(() => {
           this.count += 1
         })
       } else if (this.count === 7) {
-        this.$alert('I warned you..')
+        this.$confirm('I warned you').then(() => {
+          this.count += 1
+        })
+      } else if (this.count === 11) {
+        this.$confirm('BOOM').then(() => {
+          this.count += 1
+        })
       }
     }
   }
@@ -109,11 +115,86 @@ export default {
   }
 
   /*Extra large devices (large desktops, 1200px and up)*/
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1440px) {
     #navbar {
       background-color: transparent;
       font-family: 'Poppins', sans-serif;
       font-size: 18px;
+    }
+    ul {
+      list-style: none;
+      margin-bottom: 0;
+      position: relative;
+      top: 20px;
+    }
+    a {
+      color: #555971;
+      padding-bottom: 12px;
+      transition: 0.25s ease;
+    }
+    a:hover {
+      color: #1e1f2a;
+      text-decoration: none;
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    hr {
+      position: relative;
+      top: 12px;
+      border-color: transparent;
+    }
+    hr.workActive {
+      border-style: solid;
+      transition: border-color 0.3s ease;
+      border-color: #e72378;
+      border-width: 2px;
+      margin-top: 0px;
+      -webkit-transform:rotate(4deg);
+    }
+    hr.aboutActive {
+      border-style: solid;
+      transition: border-color 0.3s ease;
+      border-color: #e72378;
+      border-width: 2px;
+      margin-top: 0px;
+      -webkit-transform:rotate(-2deg);
+    }
+    hr.contactActive {
+      border-style: solid;
+      transition: border-color 0.3s ease;
+      border-color: #e72378;
+      border-width: 2px;
+      margin-top: 0px;
+      -webkit-transform:rotate(3deg);
+    }
+    p.workActive, p.aboutActive, p.contactActive {
+      margin-bottom: -3px;
+    }
+    svg.fa-moon {
+      color: white;
+      font-size: 24px;
+      margin-right: 24px;
+      transition: 2s ease;
+    }
+    svg.fa-sun {
+      color: #1e1f2b;
+      font-size: 24px;
+      margin-right: 24px;
+      transition: 2s ease;
+    }
+    #toggle-mode {
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: 1441px) {
+    #navbar {
+      background-color: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      width: 1440px;
+      margin: 0 auto;
     }
     ul {
       list-style: none;
