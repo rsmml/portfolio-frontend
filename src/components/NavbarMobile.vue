@@ -3,7 +3,10 @@
     <nav class="d-flex flex-column text-left">
       <div class="text-center">
         <router-link to="/">
-          <img src="../assets/favicon.png" alt="RS" class="logo-sm m-3">
+          <router-link to="/">
+            <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
+            <img v-else src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
+          </router-link>
         </router-link>
       </div>
       <div class="menu-link-lg flex-grow-1">
@@ -28,8 +31,9 @@
           </router-link>
         </ul>
       </div>
-      <div id="toggle-mode">
-        <ToggleMode />
+      <div id="toggle-mode" @click="toggleMode(), counter()">
+        <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
+        <font-awesome-icon icon="sun" v-else/>
       </div>
     </nav>
   </div>
@@ -44,7 +48,7 @@ export default {
       workActive: false,
       aboutActive: false,
       contactActive: false,
-      darkMode: ''
+      count: 0
     }
   },
   components: {
@@ -56,6 +60,39 @@ export default {
   methods: {
     checkMode () {
       this.darkMode = localStorage.darkMode
+    },
+    toggleMode () {
+      const el = document.body
+      if (this.darkMode) {
+        this.$store.state.darkMode = false
+        el.style.backgroundcolor = 'white'
+      } else {
+        this.$store.state.darkMode = true
+        el.style.backgroundcolor = '#4d4d73'
+      }
+    },
+    counter () {
+      this.count += 1
+    },
+    broken () {
+      if (this.count === 3) {
+        this.$confirm('Hey! If you keep going you will break my portfolio...').then(() => {
+          this.count += 1
+        })
+      } else if (this.count === 7) {
+        this.$confirm('I warned you').then(() => {
+          this.count += 1
+        })
+      } else if (this.count === 11) {
+        this.$confirm('BOOM').then(() => {
+          this.count += 1
+        })
+      }
+    }
+  },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
     }
   }
 }
@@ -70,7 +107,7 @@ export default {
     z-index: 100;
     height: 100vh;
     padding: 32px 12px;
-    background-color: #3c3a7b;
+    background-color: #39393b;
     transition: 1s transform cubic-bezier(0,.12,.14.1);
   }
   #nav-mobile {

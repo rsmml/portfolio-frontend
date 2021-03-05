@@ -9,7 +9,7 @@
       <h2 v-if="darkMode" class="dark-mode-title data my-4">FullStack Web Developer</h2>
       <h2 v-else class="light-mode-title data my-4">FullStack Web Developer</h2>
       <button class="btn btn-primary d-flex align-items-center" @click.prevent="open">
-        <p class="mb-0">About Me</p>
+        <p class="mb-0 about">About Me</p>
         <font-awesome-icon icon="arrow-right" />
       </button>
     </div>
@@ -19,6 +19,10 @@
     </div>
     <About v-if="about"/>
     <button class="btn btn-outline-light">Play</button>
+    <footer class="d-flex justify-content-between align-items-center">
+      <p class="m-2">This portfolio was made with <strong>Love</strong> ❤️ and a few 🐛</p>
+      <p class="m-2">© 2021</p>
+    </footer>
   </div>
 </template>
 
@@ -133,6 +137,13 @@ export default {
       width: 100vw;
       height: 80vh;
     }
+    footer{
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      color: #fcfcfd;
+      font-size: 12px;
+    }
     img.profile {
       height: 385px;
       width: 385px;
@@ -162,7 +173,7 @@ export default {
       position: relative;
       left: 38px;
     }
-    p {
+    p.about {
       position: relative;
       left: 10px;
     }
@@ -187,6 +198,15 @@ export default {
       margin: auto;
       height: 80vh;
     }
+    footer{
+      width: 1440px;
+      position: absolute;
+      bottom: 0;
+      margin: 0px auto;
+      text-align: initial;
+      color: #fcfcfd;
+      font-size: 12px;
+    }
     img.profile {
       height: 385px;
       width: 385px;
@@ -216,7 +236,7 @@ export default {
       position: relative;
       left: 38px;
     }
-    p {
+    p.about {
       position: relative;
       left: 10px;
     }
