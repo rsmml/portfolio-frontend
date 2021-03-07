@@ -12,7 +12,9 @@ export const store = new Vuex.Store({
     play: false,
     normalMode: true,
     work: false,
-    dialog: true
+    dialog: true,
+    dialogOne: true,
+    points: 0
   },
 
   mutations: {

@@ -12,7 +12,10 @@
       </section>
     </section>
     </div>
-    <Dialog />
+    <Dialog v-if="dialog"/>
+    <div id="options" @click="openDialog" v-if="!dialog">
+      <p>Options</p>
+    </div>
   </div>
 </template>
 
@@ -39,14 +42,20 @@ export default {
     },
     play () {
       return this.$store.state.play
+    },
+    dialog () {
+      return this.$store.state.dialog
     }
   },
-  created: {
+  created () {
+    this.setBackground()
+  },
+  methods: {
     setBackground () {
-      const el = document.body
-      if (this.bit) {
-        el.style.backgroundcolor = '#222a2f'
-      }
+      if (this.bit) { document.body.style.backgroundcolor = '#222a2f' }
+    },
+    openDialog () {
+      this.$store.state.dialog = true
     }
   }
 }
@@ -57,6 +66,17 @@ export default {
     font-family: 'Press Start 2P' !important;
     width: 1440px;
     margin: 0 auto;
+  }
+  #options {
+    width: 1440px;
+    height: max-content;
+    position: absolute;
+    bottom: 0;
+    text-align: end;
+    color: white
+  }
+  #options p {
+    /*color: white;*/
   }
   .content {
     position: absolute;

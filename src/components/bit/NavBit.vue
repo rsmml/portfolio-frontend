@@ -25,8 +25,12 @@ export default {
   name: 'NavBit',
   data () {
     return {
-      counter: 0,
-      points: '000000'
+      counter: 0
+    }
+  },
+  computed: {
+    points () {
+      return this.$store.state.points
     }
   },
   mounted: function () {
