@@ -32,9 +32,12 @@
           </a>
         </ul>
       </div>
-      <div id="toggle-mode" @click="toggleMode(), counter()">
+      <div id="toggle-mode" @click="toggleMode">
         <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
         <font-awesome-icon icon="sun" v-else/>
+      </div>
+      <div>
+        <i @click="sup" class="snes-jp-logo"></i>
       </div>
     </nav>
   </div>
@@ -50,7 +53,8 @@ export default {
       aboutActive: false,
       contactActive: false,
       componentKey: 0,
-      count: 0
+      count: 0,
+      executed: false
     }
   },
   updated () {
@@ -84,17 +88,12 @@ export default {
     counter () {
       this.count += 1
     },
-    broken () {
-      if (this.count === 3) {
-        this.$confirm('Hey! If you keep going you will break my portfolio...').then(() => {
-          this.count += 1
+    sup () {
+      if (!this.executed) {
+        this.$confirm('You are about to enter in a 8-bit world').then(() => {
+          this.executed = true
+          this.$store.state.normalMode = false
         })
-      } else if (this.count === 7) {
-        this.$confirm('I warned you').then(() => {
-          this.count += 1
-        })
-      } else if (this.count === 11) {
-        this.$store.state.normalMode = false
       }
     }
   }
@@ -125,6 +124,7 @@ export default {
       font-family: 'Poppins', sans-serif;
       font-size: 18px;
       cursor: defaul;
+      padding-right: 24px;
     }
     ul {
       list-style: none;
@@ -143,6 +143,7 @@ export default {
     }
     p {
       margin-bottom: 0px;
+      color: white
     }
     hr {
       position: relative;
@@ -190,6 +191,9 @@ export default {
     }
     #toggle-mode {
       cursor: pointer;
+    }
+    i.nes-jp-logo {
+      transform: scale(.7);
     }
   }
 
@@ -267,6 +271,9 @@ export default {
     }
     #toggle-mode {
       cursor: pointer;
+    }
+    i.nes-jp-logo {
+      transform: scale(.7);
     }
   }
 </style>

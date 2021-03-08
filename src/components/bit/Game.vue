@@ -174,7 +174,9 @@ export default {
             next.classList.add('active')
             player.classList.remove('active')
             if (player.id === '29') {
-              this.$alert(`Woow you made ${this.points} points`)
+              this.$confirm(`Woow you made ${this.points} points`).then(() => {
+                location.reload()
+              })
             }
             if (player.id === '1') {
               this.$store.state.points += Math.floor(Math.random() * 101)
@@ -205,60 +207,75 @@ export default {
 </script>
 
 <style scoped>
-  #game-me {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    background-image: url(../../assets/map.png);
-    background-size: contain;
-    width: 1440px;
-    height: 100vh;
-    background-repeat: no-repeat;
-  }
-  .game-board {
-    display: grid;
-    grid-template-columns: repeat(20, 70px);
-    margin-top: 140px;
-  }
-  canvas {
-    margin-top: 140px;
-    width: 1440px;
-    height: 100vh;
-  }
-  .box {
-    height: 70px;
-    width: 70px;
-    /*background-color: rgba(216, 39, 102, 0.4);
-    border: 2px solid black;*/
-  }
-  .wall {
-    height: 70px;
-    width: 70px;
-    /*background-color: rgba(0, 0, 0, 0.4);*/
-    /*border: 2px solid black;*/
-  }
-  #player div.active {
-    background-image: url(../../assets/mebit.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  img {
-    width: 100%;
-  }
-  @media (max-width: 576px) {
-  }
 
-  /*Medium devices (tablets, > 577px < 768px )*/
-  @media (min-width: 577px) and (max-width: 768px) {
-  }
-
-  /*Extra large devices (large desktops, 1200px and up)*/
   @media (min-width: 768px) and (max-width: 1440px) {
+    #game-me {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      background-image: url(../../assets/map.png);
+      background-size: contain;
+      width: 100%;
+      height: 100vh;
+      background-repeat: no-repeat;
+    }
+    #player div.active {
+      background-image: url(../../assets/mebit.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .game-board {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(20, 50px);
+      margin-top: 90px;
+    }
+    .box {
+      height: 50px;
+      width: 50px;
+    }
+    .wall {
+      height: 50px;
+      width: 50px;
+    }
   }
 
   @media (min-width: 1441px) {
-    img {
+    #game-me {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      background-image: url(../../assets/map.png);
+      background-size: contain;
       width: 1440px;
+      height: 100vh;
+      background-repeat: no-repeat;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(20, 70px);
+      margin-top: 140px;
+    }
+    canvas {
+      margin-top: 140px;
+      width: 1440px;
+      height: 100vh;
+    }
+    .box {
+      height: 70px;
+      width: 70px;
+    }
+    .wall {
+      height: 70px;
+      width: 70px;
+    }
+    #player div.active {
+      background-image: url(../../assets/mebit.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    img {
+      width: 100%;
     }
   }
 </style>

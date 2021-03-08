@@ -2,36 +2,39 @@
   <div id="dialog">
     <div v-if="dialogOne">
       <div class="nes-container is-dark with-title text-left">
-        <p class="title">Important Message! Must Read</p>
+        <p class="title"> > Hello World _</p>
         <div class="d-flex justify-content-between align-items-start">
-          <p>Hello There... Thou hast had a good night's sleep, I hope.
+          <p>Thou hast had a good night's sleep, I hope.
             <br>
-            Looks like you like to test my portfolio and now something went wrong.
+            It looks like you found my portfolio's 8-bit vault.
             <br>
-            Some styleshits went missing.
+            Could you help me to go through the map?
             <br>
-            Please select an option:
+            You will learn more about me!
           </p>
           <div id="cross" @click="closeDialog" v-if="dialog">
             <p style="transform: rotate(45deg); font-size: 40px">+</p>
           </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
-          <a class="nes-btn" href="#" @click="normal">find /normal.scss</a>
-          <a class="nes-btn" href="#" @click="play">LETS PLAY! Get to know me</a>
+          <a class="nes-btn" href="#" @click="normal">Back</a>
+          <a class="nes-btn is-warning" href="#" @click="play">LETS PLAY! Get to know me</a>
           <a class="nes-btn" href="#">See my work</a>
         </div>
       </div>
     </div>
     <div v-else>
       <div  class="nes-container is-dark with-title text-left">
-        <p class="title">My portfolio game!</p>
+        <p class="title"> > My portfolio's game _</p>
         <div class="d-flex align-items-between">
-          <p>Thanks for playing! Please just move the arrows of your keyboard
+          <p>Thank you for playing. Move the arrows of your keyboard
             <i class="snes-jp-logo"></i>
-            UP - LEFT
             <br>
-            Every breakpoint will teach you a bit more about myself my last experiences.
+            ◀ LEFT - ▶ RIGHT
+            <br>
+            This little journey will teach you a bit more about my past experiences.
+            <br>
+            Let me know how many points you have made!
             <br>
             Have fun!<i class="nes-icon is-large heart"></i>
           </p>
@@ -39,7 +42,7 @@
             <div id="cross" @click="closeDialog" v-if="dialog">
               <p style="transform: rotate(45deg); font-size: 40px">+</p>
             </div>
-            <a class="nes-btn" href="#" @click="normal">Go back to main page</a>
+            <a class="nes-btn" href="#" @click="normal">Main page</a>
           </div>
         </div>
       </div>

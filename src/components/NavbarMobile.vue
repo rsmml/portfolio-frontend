@@ -1,29 +1,27 @@
 <template>
   <div id="nav-mobile" >
-    <nav class="d-flex flex-column text-left">
+    <nav class="d-flex flex-column text-left" :class="{'light': !this.darkMode}">
       <div class="text-center">
-        <router-link to="/">
-          <router-link to="/">
-            <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
-            <img v-else src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
-          </router-link>
+        <router-link to="/" :class="{'light': !this.darkMode}">
+          <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
+          <img v-else src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
         </router-link>
       </div>
       <div class="menu-link-lg flex-grow-1">
         <ul class="d-flex flex-column">
-          <router-link to="/" class="mx-4">
+          <router-link to="/" class="mx-4" :class="{'light': !this.darkMode}">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
               <p :class="{ workActive }">Work</p>
               <hr :class="{ workActive }">
             </li>
           </router-link>
-          <router-link to="/about" class="mx-4">
+          <router-link to="/about" class="mx-4" :class="{'light': !this.darkMode}">
             <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
               <p :class="{ aboutActive }">About</p>
               <hr :class="{ aboutActive }">
             </li>
           </router-link>
-          <router-link to="/#" class="mx-4">
+          <router-link to="/#" class="mx-4" :class="{'light': !this.darkMode}">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
               <p :class="{ contactActive }">Contact</p>
               <hr :class="{ contactActive }">
@@ -110,10 +108,17 @@ export default {
     background-color: #39393b;
     transition: 1s transform cubic-bezier(0,.12,.14.1);
   }
+  nav.light {
+   background-color: #e9e9e9 !important;
+  }
+  a.light {
+    color: #202231 !important;
+  }
   #nav-mobile {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     z-index: 1000;
+    cursor: default !important;
   }
   ul {
     list-style: none;
@@ -126,13 +131,14 @@ export default {
     width: max-content;
   }
   a {
-    color: #555971;
+    color: #e9e9e9;
     padding-bottom: 12px;
     transition: 0.25s ease;
   }
   a:hover {
-    color: #1e1f2a;
+    transform: scale(1.1);
     text-decoration: none;
+    cursor: pointer !important;
   }
   p {
     margin-bottom: 0px;
@@ -171,5 +177,17 @@ export default {
   }
   p.contactActive {
     margin-bottom: -3px;
+  }
+  svg.fa-moon {
+    color: white;
+    font-size: 24px;
+    margin-right: 24px;
+    transition: 2s ease;
+  }
+  svg.fa-sun {
+    color: #1e1f2b;
+    font-size: 24px;
+    margin-right: 24px;
+    transition: 2s ease;
   }
 </style>

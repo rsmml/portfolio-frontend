@@ -1,6 +1,6 @@
 <template>
   <div id="night-mode">
-    <Moon class="animate__animated animate__bounce" :class="{ 'animate__bounceOutDown' : !darkMode }" />
+    <Moon id="moon" class="animate__animated animate__bounce" :class="{ 'animate__bounceOutDown' : !darkMode }" />
     <Stars class="animate__animated animate__flash" :class="{ 'animate__zoomOut' : !darkMode }" />
     <Clouds class="animate__animated animate__heartBeat" :class="{ 'animate__bounceOutDown' : !darkMode }" />
     <Mountains class="animate__animated animate__rubberBand" :class="{ 'animate__fadeOut' : !darkMode }" />
@@ -53,5 +53,10 @@ export default {
     width: 100%;
     height: 100vh;
     opacity: 0.6;
+  }
+  @media (max-width: 767px) {
+    #moon {
+      opacity: 0;
+    }
   }
 </style>

@@ -14,7 +14,9 @@ export const store = new Vuex.Store({
     work: false,
     dialog: true,
     dialogOne: true,
-    points: 0
+    points: 0,
+    mobileView: false,
+    showNav: false
   },
 
   mutations: {

@@ -46,7 +46,7 @@ export default {
     padding: 12px 12px 0 12px;
     font-family: 'Press Start 2P' !important;
     color: white;
-    text-shadow: 2px 2px 2px black
+    text-shadow: 2.5px 2.5px 2px black
   }
   i {
     margin: 0 12px 0 0 !important;
@@ -66,6 +66,10 @@ export default {
 
   /*Extra large devices (large desktops, 1200px and up)*/
   @media (min-width: 768px) and (max-width: 1440px) {
+    #navbit {
+      width: 100%;
+      padding: 0 40px;
+    }
   }
 
   @media (min-width: 1441px) {

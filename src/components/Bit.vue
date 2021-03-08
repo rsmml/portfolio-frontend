@@ -4,7 +4,7 @@
     <Game v-if="play"/>
     <div v-else class="animate__animated animate__flash">
     <section class="message-list d-flex justify-content-center align-items-center">
-      <i class="nes-kirby"></i>
+      <i class="nes-octocat animate"></i>
       <section class="message -left">
         <div class="nes-balloon from-left">
           <p>Shall we play?</p>
@@ -62,25 +62,46 @@ export default {
 </script>
 
 <style scoped>
-  #bit {
-    font-family: 'Press Start 2P' !important;
-    width: 1440px;
-    margin: 0 auto;
+  @media (min-width: 768px) and (max-width: 1440px) {
+    #bit {
+      font-family: 'Press Start 2P' !important;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #options {
+      width: 100%;
+      height: max-content;
+      position: absolute;
+      bottom: 0;
+      text-align: end;
+      color: white;
+    }
   }
-  #options {
-    width: 1440px;
-    height: max-content;
-    position: absolute;
-    bottom: 0;
-    text-align: end;
-    color: white
-  }
-  #options p {
-    /*color: white;*/
-  }
-  .content {
-    position: absolute;
-    top: 0;
-    z-index: -1;
+
+  @media (min-width: 1441px) {
+    #bit {
+      font-family: 'Press Start 2P' !important;
+      width: 1440px;
+      margin: 0 auto;
+    }
+    #options {
+      width: 1440px;
+      height: max-content;
+      position: absolute;
+      bottom: 0;
+      text-align: end;
+      color: white;
+    }
+    #options p {
+      /*color: white;*/
+    }
+    .content {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
   }
 </style>
