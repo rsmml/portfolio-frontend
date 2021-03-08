@@ -5,26 +5,52 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-6 card-left">
-        <h1 class="py-4">Hi There!</h1>
-        <h2 class="text-left pb-4">Thanks for passing by 🎉</h2>
-        <p>
-          Soo... A bit about myself 👨‍💻.
-          <br>
-          I'm {{ this.name }}, a {{ 29 }} years old Italian-Argentinian living in Germany.
-          <br>
-          I am an ambitious and motivated <strong>Full Stack Developer</strong> and <strong>Architect</strong>.
-          I moved to Berlin with the ambition to develop my career, with the goal to work in the tech field. I found coding and product management as a new direction.
-          <br>
-          I love to resolve design problems as well as create smart user interface and user experience.
-          I like to be in all aspecs of web development, working in front-end as solving complex algorithms.
-        </p>
+        <div>
+          <p class="about">About me</p>
+        </div>
+        <div>
+          <h1>Rodrigo Sommacal.</h1>
+          <p class="text-gray">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
+          <div>
+            <p class="m-0 text-small-bold">UI/UX</p>
+            <p class="m-0 text-small-bold">FrontEnd</p>
+            <p class="m-0 text-small-bold">BackEnd</p>
+            <p class="m-0 text-small-bold">Data</p>
+            <p class="m-0 text-small-bold">REST API</p>
+            <p class="m-0 text-small-bold">Web Design</p>
+          </div>
+        </div>
+        <div><h2>Skills</h2></div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex flex-column align-items-center">
+            <img src="@/assets/icons/ruby-2.png" alt="" v-if="hoverOne" @mouseleave="hoverOne = false">
+            <img src="@/assets/icons/ruby-1.png" alt="" v-if="!hoverOne" @mouseover="hoverOne = true">
+            <p class="py-2">Ruby</p>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <img src="@/assets/icons/rails-2.png" alt="" v-if="hoverTwo" @mouseleave="hoverTwo = false">
+            <img src="@/assets/icons/rails-1.png" alt="" v-if="!hoverTwo" @mouseover="hoverTwo = true">
+            <p class="py-2">Rails</p>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <img src="@/assets/icons/vue-2.png" alt="" v-if="hoverThree" @mouseleave="hoverThree = false">
+            <img src="@/assets/icons/vue-1.png" alt="" v-if="!hoverThree" @mouseover="hoverThree = true">
+            <p class="py-2">Vue</p>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <img src="@/assets/icons/postgres-2.png" alt="" v-if="hoverFour" @mouseleave="hoverFour = false">
+            <img src="@/assets/icons/postgres-1.png" alt="" v-if="!hoverFour" @mouseover="hoverFour = true">
+            <p class="py-2">PostgreSQL</p>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <img src="@/assets/icons/docker-2.png" alt="" v-if="hoverFive" @mouseleave="hoverFive = false">
+            <img src="@/assets/icons/docker-1.png" alt="" v-if="!hoverFive" @mouseover="hoverFive = true">
+            <p class="py-2">Docker</p>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-lg-6 card-right">
-        <h1>Lets Talk</h1>
-        <h2>Thanks for passing by 🎉</h2>
-        <p>
+      <div class="rounded-picture col-12 col-lg-6 card-right">
 
-        </p>
       </div>
     </div>
   </div>
@@ -36,7 +62,12 @@ export default {
   data () {
     return {
       name: 'Rodrigo Sommacal',
-      age: '29'
+      age: '29',
+      hoverOne: false,
+      hoverTwo: false,
+      hoverThree: false,
+      hoverFour: false,
+      hoverFive: false
     }
   },
   methods: {
@@ -76,22 +107,64 @@ export default {
       text-justify: inter-word;
       padding: 40px;
     }
-    h2{
-      padding-left: 40px;
-    }
   }
   @media (min-width: 1441px) {
+    img {
+      height: 60px;
+      width: 60px;
+      transition: 0.2s ease;
+    }
+    img:hover {
+      transform: scale(1.3);
+      cursor: pointer;
+    }
     #about {
       position: absolute;
       width: 1240px;
       height: 768px;
-      background-color: #f3f3f3;
+      background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
+      border-radius: 4px;
+      background-image: url(../assets/back-about.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+    p.about {
+      font-weight: bolder;
+      font-size: 18px;
+      border-bottom: 6px solid #dd3e83;
+      padding-bottom: 8px;
+      width: max-content;
+    }
+    .card-left {
+      padding: 60px;
+    }
+    h1 {
+      font-weight: 900;
+      text-align: start;
+      padding: 18px 0;
+    }
+    p.text-gray {
+      opacity: 0.8;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    p.text-small-bold {
+      opacity: 0.8;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    h2 {
+      font-weight: 900;
+      text-align: start;
+      padding: 18px 0;
     }
     svg.fa-times {
       color: #1e1f2b;
-      height: 45px !important;
+      height: 24px !important;
       width: 32px !important;
+      font-weight: thine
     }
     .close-icon {
       position: absolute;
@@ -104,10 +177,7 @@ export default {
       color: #1e1f2b;
       text-align: start;
       text-justify: inter-word;
-      padding: 40px;
-    }
-    h2{
-      padding-left: 40px;
+      /*padding: 40px;*/
     }
   }
 </style>
