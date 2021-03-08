@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faBars, faTimes, faArrowRight, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faBars, faTimes, faArrowRight, faMoon, faSun, faCommentDots, faPoo, faMeh, faGrinTears, faGrinHearts, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Bootstrap
@@ -30,7 +30,21 @@ import { store } from './store/store'
 import VueAnime from 'vue-animejs'
 
 // Font Awesome
-library.add(faSpinner, faBars, faTimes, faArrowRight, faLinkedinIn, faGithub, faMoon, faSun)
+library.add(faSpinner,
+  faBars,
+  faTimes,
+  faArrowRight,
+  faLinkedinIn,
+  faGithub,
+  faMoon,
+  faSun,
+  faCommentDots,
+  faPoo,
+  faMeh,
+  faGrinTears,
+  faGrinHearts,
+  faHeart
+)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
