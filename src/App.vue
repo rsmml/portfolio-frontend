@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Background />
-    <div id="icon-nav" v-if="mobileView" @click="showNav = !showNav" :class="{ 'move': showNav}">
-      <font-awesome-icon icon="bars" v-if="!showNav" />
-      <font-awesome-icon icon="times" v-if="showNav" />
+    <div id="icon-nav" v-if="mobileView" @click="openNav" :class="{ 'move': showNav}">
+      <font-awesome-icon icon="bars" v-if="!showNav" :class="{'light': !this.darkMode}"/>
+      <font-awesome-icon icon="times" v-if="showNav" :class="{'light': !this.darkMode}"/>
     </div>
     <Navbar v-if="!mobileView" :key="componentKey"/>
     <transition
@@ -33,8 +33,6 @@ export default {
   data () {
     return {
       darkmode: '',
-      mobileView: false,
-      showNav: false,
       componentKey: 0
     }
   },
@@ -46,10 +44,13 @@ export default {
   },
   methods: {
     handleView () {
-      this.mobileView = window.innerWidth <= 768
-      if (this.mobileView <= 768) {
-        this.showNav = false
+      this.$store.state.mobileView = window.innerWidth <= 768
+      if (this.$store.state.mobileView <= 768) {
+        this.$store.state.showNav = false
       }
+    },
+    openNav () {
+      this.$store.state.showNav = !this.$store.state.showNav
     }
   },
   created () {
@@ -65,18 +66,24 @@ export default {
   computed: {
     darkMode () {
       return this.$store.state.darkMode
+    },
+    mobileView () {
+      return this.$store.state.mobileView
+    },
+    showNav () {
+      return this.$store.state.showNav
     }
   }
 }
 </script>
 
 <style>
-  body {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap')
   p {
     color: white;
+  }
+  body {
+    cursor: default;
   }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -96,6 +103,9 @@ export default {
     width: 22px !important;
     height: 22px !important;
     color: white;
+  }
+  svg.light {
+    color: #202231 !important;
   }
   .mobile-nav{
     position: absolute;

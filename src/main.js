@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 // Animate.css
 import 'animate.css'
+// Nes.css
+import 'nes.css/css/nes.min.css'
 // Simple Alert
 import VueSimpleAlert from 'vue-simple-alert'
 // Axios
@@ -57,8 +59,4 @@ new Vue({
   template: '<App/>'
 })
 
-// localStorage.setItem('darkMode', 'true')
-
-// if (localStorage.darkMode === 'true') {
-//   document.getElementById('toggle').checked = true
-// }
+console.log('Hello there! Thanks for passing by. If you are interested, put in contact with my throughout my contact page. See you :)')

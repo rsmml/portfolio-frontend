@@ -1,7 +1,9 @@
 <template>
   <div id="home" class="row justify-content-around align-items-center">
-    <NightMode :key="componentKey"/>
-    <div class="left-box">
+    <Bit v-if="!normal"/>
+    <NightMode :key="componentKey" v-if="normal"/>
+
+    <div class="left-box" v-if="normal">
       <div class="title">
         <SvgTitle id="img-title" v-if="darkMode"/>
         <SvgTitleDark id="img-title" v-else/>
@@ -10,16 +12,17 @@
       <h2 v-else class="light-mode-title data my-4">FullStack Web Developer</h2>
       <button class="btn btn-primary d-flex align-items-center" @click.prevent="open">
         <p class="mb-0 about">About Me</p>
-        <font-awesome-icon icon="arrow-right" />
+        <font-awesome-icon icon="arrow-right" :class="{'dark-arrow': !darkMode }" />
       </button>
     </div>
-    <div class="right-box d-flex">
+    <div class="right-box d-flex" v-if="normal">
       <img src="@/assets/profile.png" alt="avatar" class="profile animate__animated animate__fadeIn">
       <!-- <img id="glasses" src="@/assets/glasses.png" alt="avatar" class="animate__animated" :class="{ 'animate__fadeIn' : !darkMode}"> -->
     </div>
+
     <About v-if="about"/>
-    <button class="btn btn-outline-light">Play</button>
-    <footer class="d-flex justify-content-between align-items-center">
+    <button v-if="normal" class="btn btn-outline-light play-btn" @click="play">I Just came here to Play</button>
+    <footer v-if="normal && !mobileView" class="d-flex justify-content-between align-items-center">
       <p class="m-2">This portfolio was made with <strong>Love</strong> ❤️ and a few 🐛</p>
       <p class="m-2">© 2021</p>
     </footer>
@@ -32,6 +35,7 @@ import SvgTitle from './SvgTitle'
 import NightMode from './NightMode'
 import SvgTitleDark from './SvgTitleDark'
 import About from './About'
+import Bit from './Bit'
 import { bus } from '../main'
 
 export default {
@@ -46,7 +50,8 @@ export default {
     SvgTitle,
     NightMode,
     SvgTitleDark,
-    About
+    About,
+    Bit
   },
   mounted () {
     let b = baffle('.data', {
@@ -73,11 +78,23 @@ export default {
     },
     about () {
       return this.$store.state.about
+    },
+    normal () {
+      return this.$store.state.normalMode
+    },
+    mobileView () {
+      return this.$store.state.mobileView
+    },
+    showNav () {
+      return this.$store.state.showNav
     }
   },
   methods: {
     open () {
       this.$store.state.about = true
+    },
+    play () {
+      this.$store.state.normalMode = false
     }
   }
 }
@@ -130,12 +147,20 @@ export default {
       position: relative;
       left: 38px;
     }
+    svg.dark-arrow {
+      color: #5d5e5d;
+    }
+    button.play-btn {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1440px) {
     #home {
       width: 100vw;
-      height: 80vh;
     }
     footer{
       position: absolute;
@@ -145,10 +170,10 @@ export default {
       font-size: 12px;
     }
     img.profile {
-      height: 385px;
-      width: 385px;
+      height: 300px;
+      width: 300px;
       border-radius: 50%;
-      border: 20px solid white;
+      border: 16px solid white;
     }
     h2 {
       color: white;
@@ -188,6 +213,9 @@ export default {
     }
     h2.light-mode-title {
       color: #1e1f2b;
+    }
+    svg.dark-arrow {
+      color: #5d5e5d;
     }
   }
   @media (min-width: 1441px) {
@@ -235,6 +263,9 @@ export default {
     svg.fa-arrow-right {
       position: relative;
       left: 38px;
+    }
+    svg.dark-arrow {
+      color: #5d5e5d;
     }
     p.about {
       position: relative;
