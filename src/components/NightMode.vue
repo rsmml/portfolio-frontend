@@ -54,7 +54,7 @@ export default {
     height: 100vh;
     opacity: 0.6;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     #moon {
       opacity: 0;
     }
