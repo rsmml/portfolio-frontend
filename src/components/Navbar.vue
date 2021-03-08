@@ -61,7 +61,7 @@ export default {
     bus.$on('reload', (data) => {
       this.componentKey += data
     })
-    this.broken()
+    // this.broken()
   },
   computed: {
     darkMode () {

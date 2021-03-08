@@ -2,8 +2,8 @@
   <div id="app">
     <Background />
     <div id="icon-nav" v-if="mobileView" @click="openNav" :class="{ 'move': showNav}">
-      <font-awesome-icon icon="bars" v-if="!showNav" :class="{'light': !this.darkMode}"/>
-      <font-awesome-icon icon="times" v-if="showNav" :class="{'light': !this.darkMode}"/>
+      <font-awesome-icon icon="bars" v-if="!showNav" :class="{'light': !darkMode}"/>
+      <font-awesome-icon icon="times" v-if="showNav" :class="{'light': !darkMode}"/>
     </div>
     <Navbar v-if="!mobileView" :key="componentKey"/>
     <transition

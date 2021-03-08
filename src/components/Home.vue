@@ -23,6 +23,7 @@
     </div>
 
     <About v-if="about"/>
+    <Review />
     <button v-if="normal && !mobileView" class="btn btn-outline-light play-btn" @click="play">I Just came here to Play</button>
     <footer v-if="normal && !mobileView" class="d-flex justify-content-between align-items-center">
       <p class="m-2">This portfolio was made with <strong>Love</strong> ❤️ and a few 🐛</p>
@@ -38,6 +39,7 @@ import NightMode from './NightMode'
 import SvgTitleDark from './SvgTitleDark'
 import About from './About'
 import Bit from './Bit'
+import Review from './Review'
 import { bus } from '../main'
 
 export default {
@@ -53,7 +55,8 @@ export default {
     NightMode,
     SvgTitleDark,
     About,
-    Bit
+    Bit,
+    Review
   },
   mounted () {
     let b = baffle('.data', {

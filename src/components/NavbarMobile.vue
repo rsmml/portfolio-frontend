@@ -101,7 +101,7 @@ export default {
     height: 40px;
   }
   nav {
-    width: 150px;
+    width: 50%;
     z-index: 100;
     height: 100vh;
     padding: 32px 12px;
@@ -119,6 +119,7 @@ export default {
     font-size: 18px;
     z-index: 1000;
     cursor: default !important;
+    width: 50%
   }
   ul {
     list-style: none;
