@@ -2,15 +2,15 @@
   <div id="bit">
     <NavBit />
     <Game v-if="play"/>
-    <div v-else class="animate__animated animate__flash">
-    <section class="message-list d-flex justify-content-center align-items-center">
-      <i class="nes-octocat animate"></i>
-      <section class="message -left">
-        <div class="nes-balloon from-left">
-          <p>Shall we play?</p>
-        </div>
+    <div v-else class="middle animate__animated animate__flash">
+      <section class="message-list d-flex justify-content-center align-items-center">
+        <i class="nes-octocat animate"></i>
+        <section class="message -left">
+          <div class="nes-balloon from-left">
+            <p>Shall we play?</p>
+          </div>
+        </section>
       </section>
-    </section>
     </div>
     <Dialog v-if="dialog"/>
     <div id="options" @click="openDialog" v-if="!dialog">
@@ -95,8 +95,11 @@ export default {
       text-align: end;
       color: white;
     }
-    #options p {
-      /*color: white;*/
+    .middle {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .content {
       position: absolute;

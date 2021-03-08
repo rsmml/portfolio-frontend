@@ -1,5 +1,5 @@
 <template>
-  <div id="review">
+  <div id="review" v-if="normal">
     <div id="review-box">
       <div class="points animate__animated animate__headShake" v-if="display">
         <p>Help me to grow! your feedback is more than welcome</p>
@@ -26,7 +26,7 @@
             <p>Love it</p>
           </div>
         </div>
-        <div v-if="clicked" class="w-100">
+        <div v-if="clicked" class="w-100 animate__animated animate__heartBeat">
           <p>🎉 THANK YOU 🎉</p>
         </div>
       </div>
@@ -54,19 +54,139 @@ export default {
       this.display = !this.display
       this.clicked = false
     }
+  },
+  computed: {
+    normal () {
+      return this.$store.state.normalMode
+    }
   }
 }
 </script>
 
 <style scoped>
   @media (max-width: 767px) {
+    #review {
+      color: #202231;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      position: absolute;
+      bottom: 5%;
+      padding: 0 12px;
+      z-index: 1000;
+    }
+    #review-box {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .points {
+      background: #e9e9e9;
+      padding: 16px 22px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 4px 4px 16px #232638;
+    }
+    p {
+      font-weight: bolder;
+    }
+    svg {
+      font-size: 24px;
+      transition: 0.2s ease;
+    }
+    svg.fa-poo {
+      color: #ba7446 ;
+    }
+    svg.fa-meh, svg.fa-grin-tears, svg.fa-grin-hearts {
+      color: #666666;
+    }
+    svg.fa-heart {
+      color: #ff032c;
+    }
 
+    .icon:hover {
+      cursor: pointer;
+    }
+    svg:hover {
+      transform: scale(1.5);
+    }
+    svg.fa-comment-dots {
+      color: #ececec;
+      font-size: 40px;
+      transition: 0.3s ease;
+    }
+    svg.fa-comment-dots:hover {
+      transform: scale(1.2);
+      text-shadow: 2px 2px 4px black;
+      cursor: pointer;
+    }
   }
-  @media (min-width: 768px) and (max-width: 979px) {
+  @media (min-width: 768px) and (max-width: 1440px) {
+    #review {
+      color: #202231;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      position: absolute;
+      bottom: 5%;
+      padding: 0 12px;
+      z-index: 1000;
+    }
+    #review-box {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .points {
+      background: #e9e9e9;
+      padding: 16px 22px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 4px 4px 16px #232638;
+    }
+    p {
+      font-weight: bolder;
+    }
+    svg {
+      font-size: 24px;
+      transition: 0.2s ease;
+    }
+    svg.fa-poo {
+      color: #ba7446 ;
+    }
+    svg.fa-meh, svg.fa-grin-tears, svg.fa-grin-hearts {
+      color: #666666;
+    }
+    svg.fa-heart {
+      color: #ff032c;
+    }
 
-  }
-  @media (min-width: 980px) and (max-width: 1440px) {
-
+    .icon:hover {
+      cursor: pointer;
+    }
+    svg:hover {
+      transform: scale(1.5);
+    }
+    svg.fa-comment-dots {
+      color: #ececec;
+      font-size: 40px;
+      transition: 0.3s ease;
+    }
+    svg.fa-comment-dots:hover {
+      transform: scale(1.2);
+      text-shadow: 2px 2px 4px black;
+      cursor: pointer;
+    }
   }
   @media (min-width: 1441px) {
     #review {
@@ -94,7 +214,7 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      box-shadow: 4px 4px 8px #232638;
+      box-shadow: 4px 4px 16px #232638;
     }
     p {
       font-weight: bolder;
