@@ -9,7 +9,7 @@
       </div>
       <div>
         <h1>Rodrigo Sommacal.</h1>
-        <p class="text-gray">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
+        <p class="text-gray text-shadow">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
         <div>
           <p class="m-0 text-small-bold">UI/UX</p>
           <p class="m-0 text-small-bold">FrontEnd</p>
@@ -24,27 +24,27 @@
         <div class="d-flex flex-column align-items-center">
           <img src="@/assets/icons/ruby-2.png" alt="" v-if="hoverOne" @mouseleave="hoverOne = false">
           <img src="@/assets/icons/ruby-1.png" alt="" v-if="!hoverOne" @mouseover="hoverOne = true">
-          <p class="py-2">Ruby</p>
+          <p class="py-2 text-uppercase font-weight-bold background-white">Ruby</p>
         </div>
         <div class="d-flex flex-column align-items-center">
           <img src="@/assets/icons/rails-2.png" alt="" v-if="hoverTwo" @mouseleave="hoverTwo = false">
           <img src="@/assets/icons/rails-1.png" alt="" v-if="!hoverTwo" @mouseover="hoverTwo = true">
-          <p class="py-2">Rails</p>
+          <p class="py-2 text-uppercase font-weight-bold background-white">Rails</p>
         </div>
         <div class="d-flex flex-column align-items-center">
           <img src="@/assets/icons/vue-2.png" alt="" v-if="hoverThree" @mouseleave="hoverThree = false">
           <img src="@/assets/icons/vue-1.png" alt="" v-if="!hoverThree" @mouseover="hoverThree = true">
-          <p class="py-2">Vue</p>
+          <p class="py-2 text-uppercase font-weight-bold background-white">Vue</p>
         </div>
         <div class="d-flex flex-column align-items-center">
           <img src="@/assets/icons/postgres-2.png" alt="" v-if="hoverFour" @mouseleave="hoverFour = false">
           <img src="@/assets/icons/postgres-1.png" alt="" v-if="!hoverFour" @mouseover="hoverFour = true">
-          <p class="py-2">PostgreSQL</p>
+          <p class="py-2 text-uppercase font-weight-bold background-white">PostgreSQL</p>
         </div>
         <div class="d-flex flex-column align-items-center">
           <img src="@/assets/icons/docker-2.png" alt="" v-if="hoverFive" @mouseleave="hoverFive = false">
           <img src="@/assets/icons/docker-1.png" alt="" v-if="!hoverFive" @mouseover="hoverFive = true">
-          <p class="py-2">Docker</p>
+          <p class="py-2 text-uppercase font-weight-bold background-white">Docker</p>
         </div>
       </div>
     </div>
@@ -222,7 +222,7 @@ export default {
     img {
       height: 60px;
       width: 60px;
-      transition: 0.2s ease;
+      transition: 0.3s ease;
     }
     img:hover {
       transform: scale(1.3);
@@ -287,6 +287,11 @@ export default {
       color: #1e1f2b;
       text-align: start;
       text-justify: inter-word;
+    }
+    p.background-white {
+      background-color: rgba(255,255,255,0.7);
+      padding: 0 12px !important;
+      margin: 12px;
     }
   }
 </style>

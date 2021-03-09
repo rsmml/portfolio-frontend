@@ -107,6 +107,10 @@ export default {
   svg.light {
     color: #202231 !important;
   }
+  svg.fa-times {
+    z-index: 1200;
+    cursor: pointer;
+  }
   .mobile-nav{
     position: absolute;
     top: 0;

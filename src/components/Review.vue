@@ -2,27 +2,32 @@
   <div id="review" v-if="normal">
     <div id="review-box">
       <div class="points animate__animated animate__headShake" v-if="display">
-        <p>Help me to grow! your feedback is more than welcome</p>
-        <p>What do you think about the portfolio?</p>
+        <p class="text-review">Help me to grow! your feedback is more than welcome</p>
+        <p class="text-review"><strong>what is your impression of this portfolio?</strong></p>
         <div class="faces d-flex justify-content-around align-items-center w-100">
           <div @click="click()" class="icon">
-            <font-awesome-icon icon="poo" />
+            <!-- <font-awesome-icon icon="poo" /> -->
+            <p class="emogi">💩</p>
             <p>Indifferent</p>
           </div>
           <div @click="click()" class="icon">
-            <font-awesome-icon icon="meh" />
+            <!-- <font-awesome-icon icon="meh" /> -->
+            <p class="emogi">😕</p>
             <p>Meh</p>
           </div>
           <div @click="click()" class="icon">
-            <font-awesome-icon icon="grin-tears" />
+            <!-- <font-awesome-icon icon="grin-tears" /> -->
+            <p class="emogi">😂</p>
             <p>Funny</p>
           </div>
           <div @click="click()" class="icon">
-            <font-awesome-icon icon="grin-hearts" />
+            <!-- <font-awesome-icon icon="grin-hearts" /> -->
+            <p class="emogi">😍</p>
             <p>Creative</p>
           </div>
           <div @click="click()" class="icon">
-            <font-awesome-icon icon="heart" />
+            <!-- <font-awesome-icon icon="heart" /> -->
+            <p class="emogi">❤️‍</p>
             <p>Love it</p>
           </div>
         </div>
@@ -83,7 +88,7 @@ export default {
       align-items: flex-end;
     }
     .points {
-      background: #e9e9e9;
+      background: white;
       padding: 16px 22px;
       border-radius: 4px;
       margin-bottom: 12px;
@@ -94,6 +99,10 @@ export default {
     }
     p {
       font-weight: bolder;
+    }
+    p.text-review {
+      text-align: start;
+      margin-bottom: 0;
     }
     svg {
       font-size: 24px;
@@ -108,7 +117,13 @@ export default {
     svg.fa-heart {
       color: #ff032c;
     }
-
+    p.emogi {
+      font-size: 24px;
+      transition: 0.2s ease;
+    }
+    p.emogi:hover {
+      transform: scale(1.7);
+    }
     .icon:hover {
       cursor: pointer;
     }
@@ -145,7 +160,7 @@ export default {
       align-items: flex-end;
     }
     .points {
-      background: #e9e9e9;
+      background: white;
       padding: 16px 22px;
       border-radius: 4px;
       margin-bottom: 12px;
@@ -169,6 +184,13 @@ export default {
     }
     svg.fa-heart {
       color: #ff032c;
+    }
+    p.emogi {
+      font-size: 24px;
+      transition: 0.2s ease;
+    }
+    p.emogi:hover {
+      transform: scale(1.7);
     }
 
     .icon:hover {
@@ -207,7 +229,7 @@ export default {
       align-items: flex-end;
     }
     .points {
-      background: #e9e9e9;
+      background: white;
       padding: 16px 22px;
       border-radius: 4px;
       margin-bottom: 12px;
@@ -232,7 +254,13 @@ export default {
     svg.fa-heart {
       color: #ff032c;
     }
-
+    p.emogi {
+      font-size: 24px;
+      transition: 0.2s ease;
+    }
+    p.emogi:hover {
+      transform: scale(1.7);
+    }
     .icon:hover {
       cursor: pointer;
     }

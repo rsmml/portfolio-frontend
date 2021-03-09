@@ -1,6 +1,6 @@
 <template>
   <div id="nav-mobile" >
-    <nav class="d-flex flex-column text-left" :class="{'light': !this.darkMode}">
+    <nav class="d-flex flex-column text-left align-items-center" :class="{'light': !this.darkMode}">
       <div class="text-center">
         <router-link to="/" :class="{'light': !this.darkMode}">
           <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
@@ -29,7 +29,7 @@
           </router-link>
         </ul>
       </div>
-      <div id="toggle-mode" @click="toggleMode(), counter()">
+      <div id="toggle-mode" @click="toggleMode()">
         <font-awesome-icon icon="moon" v-if="this.darkMode === true"/>
         <font-awesome-icon icon="sun" v-else/>
       </div>
@@ -52,13 +52,7 @@ export default {
   components: {
     ToggleMode
   },
-  created () {
-    this.checkMode()
-  },
   methods: {
-    checkMode () {
-      this.darkMode = localStorage.darkMode
-    },
     toggleMode () {
       const el = document.body
       if (this.darkMode) {
@@ -67,24 +61,6 @@ export default {
       } else {
         this.$store.state.darkMode = true
         el.style.backgroundcolor = '#4d4d73'
-      }
-    },
-    counter () {
-      this.count += 1
-    },
-    broken () {
-      if (this.count === 3) {
-        this.$confirm('Hey! If you keep going you will break my portfolio...').then(() => {
-          this.count += 1
-        })
-      } else if (this.count === 7) {
-        this.$confirm('I warned you').then(() => {
-          this.count += 1
-        })
-      } else if (this.count === 11) {
-        this.$confirm('BOOM').then(() => {
-          this.count += 1
-        })
       }
     }
   },
@@ -101,7 +77,7 @@ export default {
     height: 40px;
   }
   nav {
-    width: 50%;
+    width: max-content;
     z-index: 100;
     height: 100vh;
     padding: 32px 12px;
@@ -117,9 +93,8 @@ export default {
   #nav-mobile {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    z-index: 1000;
+    z-index: 1100;
     cursor: default !important;
-    width: 50%
   }
   ul {
     list-style: none;
