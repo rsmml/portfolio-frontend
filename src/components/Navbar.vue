@@ -53,8 +53,7 @@ export default {
       aboutActive: false,
       contactActive: false,
       componentKey: 0,
-      count: 0,
-      executed: false
+      count: 0
     }
   },
   updated () {
@@ -89,9 +88,9 @@ export default {
       this.count += 1
     },
     sup () {
-      if (!this.executed) {
+      if (!this.$store.state.executed) {
         this.$confirm('You are about to enter in a 8-bit world').then(() => {
-          this.executed = true
+          this.$store.state.executed = true
           this.$store.state.normalMode = false
         })
       }

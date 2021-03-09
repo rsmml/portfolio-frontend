@@ -59,7 +59,9 @@ export default {
       this.$store.state.dialogOne = false
     },
     normal () {
-      location.reload()
+      this.$store.state.normalMode = true
+      this.$store.state.dialogOne = true
+      this.$store.state.executed = false
     },
     closeDialog () {
       this.$store.state.dialog = false
