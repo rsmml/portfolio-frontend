@@ -9,24 +9,24 @@
       </div>
       <div class="menu-link-lg flex-grow-1">
         <ul class="d-flex flex-column">
-          <router-link to="/" class="mx-4" :class="{'light': !this.darkMode}">
+          <div class="mx-4">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
               <p :class="{ workActive }">Work</p>
               <hr :class="{ workActive }">
             </li>
-          </router-link>
-          <router-link to="/about" class="mx-4" :class="{'light': !this.darkMode}">
+          </div>
+          <div class="mx-4" @click.prevent="open">
             <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
               <p :class="{ aboutActive }">About</p>
               <hr :class="{ aboutActive }">
             </li>
-          </router-link>
-          <router-link to="/#" class="mx-4" :class="{'light': !this.darkMode}">
+          </div>
+          <div class="mx-4">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
               <p :class="{ contactActive }">Contact</p>
               <hr :class="{ contactActive }">
             </li>
-          </router-link>
+          </div>
         </ul>
       </div>
       <div id="toggle-mode" @click="toggleMode()">
@@ -62,6 +62,10 @@ export default {
         this.$store.state.darkMode = true
         el.style.backgroundcolor = '#4d4d73'
       }
+    },
+    open () {
+      this.$store.state.about = true
+      this.$store.state.showNav = !this.$store.state.showNav
     }
   },
   computed: {
@@ -165,5 +169,8 @@ export default {
     font-size: 24px;
     margin-right: 24px;
     transition: 2s ease;
+  }
+  ul p {
+    color: #ffffff;
   }
 </style>
