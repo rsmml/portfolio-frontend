@@ -10,41 +10,41 @@
       <div>
         <h1>Rodrigo Sommacal.</h1>
         <p class="text-gray text-shadow">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
-        <div>
-          <p class="m-0 text-small-bold">UI/UX</p>
-          <p class="m-0 text-small-bold">FrontEnd</p>
-          <p class="m-0 text-small-bold">BackEnd</p>
-          <p class="m-0 text-small-bold">Data</p>
-          <p class="m-0 text-small-bold">REST API</p>
-          <p class="m-0 text-small-bold">Web Design</p>
+        <div class="topics">
+          <p class="ml-0 mr-4 my-2 text-small-bold">UI/UX</p>
+          <p class="ml-0 mr-4 my-2 text-small-bold">FrontEnd</p>
+          <p class="ml-0 mr-4 my-2 text-small-bold">BackEnd</p>
+          <p class="ml-0 mr-4 my-2 text-small-bold">Data</p>
+          <p class="ml-0 mr-4 my-2 text-small-bold">REST API</p>
+          <p class="ml-0 mr-4 my-2 text-small-bold">Web Design</p>
         </div>
       </div>
       <div><h2>Skills</h2></div>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="d-flex flex-column align-items-center">
+      <div class="skills">
+        <div class="d-flex flex-column align-items-center items-skills">
           <img src="@/assets/icons/ruby-2.png" alt="" v-if="hoverOne" @mouseleave="hoverOne = false">
           <img src="@/assets/icons/ruby-1.png" alt="" v-if="!hoverOne" @mouseover="hoverOne = true">
-          <p class="py-2 text-uppercase font-weight-bold background-white">Ruby</p>
+          <p class="py-2 text-uppercase font-weight-bold">Ruby</p>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center items-skills">
           <img src="@/assets/icons/rails-2.png" alt="" v-if="hoverTwo" @mouseleave="hoverTwo = false">
           <img src="@/assets/icons/rails-1.png" alt="" v-if="!hoverTwo" @mouseover="hoverTwo = true">
-          <p class="py-2 text-uppercase font-weight-bold background-white">Rails</p>
+          <p class="py-2 text-uppercase font-weight-bold">Rails</p>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center items-skills">
           <img src="@/assets/icons/vue-2.png" alt="" v-if="hoverThree" @mouseleave="hoverThree = false">
           <img src="@/assets/icons/vue-1.png" alt="" v-if="!hoverThree" @mouseover="hoverThree = true">
-          <p class="py-2 text-uppercase font-weight-bold background-white">Vue</p>
+          <p class="py-2 text-uppercase font-weight-bold">Vue</p>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center items-skills">
           <img src="@/assets/icons/postgres-2.png" alt="" v-if="hoverFour" @mouseleave="hoverFour = false">
           <img src="@/assets/icons/postgres-1.png" alt="" v-if="!hoverFour" @mouseover="hoverFour = true">
-          <p class="py-2 text-uppercase font-weight-bold background-white">PostgreSQL</p>
+          <p class="py-2 text-uppercase font-weight-bold">PostgreSQL</p>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center items-skills">
           <img src="@/assets/icons/docker-2.png" alt="" v-if="hoverFive" @mouseleave="hoverFive = false">
           <img src="@/assets/icons/docker-1.png" alt="" v-if="!hoverFive" @mouseover="hoverFive = true">
-          <p class="py-2 text-uppercase font-weight-bold background-white">Docker</p>
+          <p class="py-2 text-uppercase font-weight-bold">Docker</p>
         </div>
       </div>
     </div>
@@ -76,8 +76,8 @@ export default {
 <style scoped>
   @media (max-width: 767px) {
     img {
-      height: 60px;
-      width: 60px;
+      height: 30px;
+      width: 30px;
       transition: 0.2s ease;
     }
     img:hover {
@@ -87,7 +87,7 @@ export default {
     #about {
       position: absolute;
       width: 80vw;
-      height: 80vh;
+      height: max-content;
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
       border-radius: 4px;
@@ -98,39 +98,41 @@ export default {
     }
     p.about {
       font-weight: bolder;
-      font-size: 18px;
-      border-bottom: 6px solid #dd3e83;
-      padding-bottom: 8px;
+      font-size: 14px;
+      border-bottom: 3px solid #dd3e83;
+      padding-bottom: 4px;
       width: max-content;
     }
     .card-left {
-      padding: 60px;
+      padding: 20px;
       width: 100%;
     }
     h1 {
       font-weight: 900;
       text-align: start;
+      font-size: 22px;
       padding: 18px 0;
     }
     p.text-gray {
       opacity: 0.8;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 12px;
     }
     p.text-small-bold {
       opacity: 0.8;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 12px;
     }
     h2 {
       font-weight: 900;
       text-align: start;
-      padding: 18px 0;
+      padding: 12px 0;
+      font-size: 14px;
     }
     svg.fa-times {
       color: #1e1f2b;
-      height: 24px !important;
-      width: 32px !important;
+      height: 16px !important;
+      width: 28px !important;
       font-weight: thine
     }
     .close-icon {
@@ -144,6 +146,22 @@ export default {
       color: #1e1f2b;
       text-align: start;
       text-justify: inter-word;
+    }
+    .skills {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .topics {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap
+    }
+    .items-skills {
+      width: max-content;
+      height: max-content;
+      font-size: 12px;
     }
   }
   @media (min-width: 768px) and (max-width: 1440px) {
@@ -216,6 +234,18 @@ export default {
       color: #1e1f2b;
       text-align: start;
       text-justify: inter-word;
+    }
+    .topics {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-row-gap: 24px;
+    }
+    .skills {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
     }
   }
   @media (min-width: 1441px) {
@@ -292,6 +322,21 @@ export default {
       background-color: rgba(255,255,255,0.7);
       padding: 0 12px !important;
       margin: 12px;
+    }
+    .skills {
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .topics {
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-row-gap: 32px;
+    }
+    .items-skills {
+      width: max-content;
+      height: max-content;
     }
   }
 </style>
