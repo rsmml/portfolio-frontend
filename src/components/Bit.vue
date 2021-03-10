@@ -14,7 +14,7 @@
     </div>
     <Dialog v-if="dialog"/>
     <div id="options" @click="openDialog" v-if="!dialog">
-      <p>Options</p>
+      <p class="nes-btn is-primary">Options</p>
     </div>
   </div>
 </template>

@@ -88,18 +88,19 @@ export default {
       this.count += 1
     },
     sup () {
-      if (!this.$store.state.executed) {
-        this.$confirm('You are about to enter in a 8-bit world').then(() => {
-          this.$store.state.executed = true
-          this.$store.state.normalMode = false
-        })
-      }
+      this.$confirm('You are about to enter in a 8-bit world').then(() => {
+        this.$store.state.executed = true
+        this.$store.state.normalMode = false
+      })
     }
   }
 }
 </script>
 
 <style scoped>
+  i.snes-jp-logo:hover {
+    cursor: pointer;
+  }
   img.logo-sm{
     height: 44px;
   }

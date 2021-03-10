@@ -5,27 +5,27 @@
         <p class="text-review">Help me to grow! your feedback is more than welcome</p>
         <p class="text-review"><strong>what is your impression of this portfolio?</strong></p>
         <div class="faces d-flex justify-content-around align-items-center w-100">
-          <div @click="click()" class="icon">
+          <div @click="openInput" class="icon">
             <!-- <font-awesome-icon icon="poo" /> -->
-            <p class="emogi">💩</p>
+            <p class="emogi">👎</p>
             <p>Indifferent</p>
           </div>
-          <div @click="click()" class="icon">
+          <div @click="openInput" class="icon">
             <!-- <font-awesome-icon icon="meh" /> -->
             <p class="emogi">😕</p>
             <p>Meh</p>
           </div>
-          <div @click="click()" class="icon">
+          <div @click="click" class="icon">
             <!-- <font-awesome-icon icon="grin-tears" /> -->
             <p class="emogi">😂</p>
             <p>Funny</p>
           </div>
-          <div @click="click()" class="icon">
+          <div @click="click" class="icon">
             <!-- <font-awesome-icon icon="grin-hearts" /> -->
             <p class="emogi">😍</p>
             <p>Creative</p>
           </div>
-          <div @click="click()" class="icon">
+          <div @click="click" class="icon">
             <!-- <font-awesome-icon icon="heart" /> -->
             <p class="emogi">❤️‍</p>
             <p>Love it</p>
@@ -33,6 +33,15 @@
         </div>
         <div v-if="clicked" class="w-100 animate__animated animate__heartBeat">
           <p>🎉 THANK YOU 🎉</p>
+        </div>
+        <div v-if="indifferent" class="w-100 animate__animated animate__fadeIn">
+          <form class="d-flex justify-content-between align-items-end" @keyup.enter="click">
+            <div class="form-group w-100 text-left">
+              <label for="exampleInputEmail1">I'll like to read what you think about.</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
+            </div>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          </form>
         </div>
       </div>
       <div class="open" @click="open">
@@ -48,16 +57,23 @@ export default {
   data () {
     return {
       clicked: false,
-      display: false
+      display: false,
+      indifferent: false
     }
   },
   methods: {
     click () {
       this.clicked = true
+      this.indifferent = false
     },
     open () {
       this.display = !this.display
       this.clicked = false
+      this.indifferent = false
+    },
+    openInput () {
+      this.clicked = false
+      this.indifferent = true
     }
   },
   computed: {

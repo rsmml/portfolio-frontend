@@ -18,9 +18,7 @@
       <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
-
-      <div id="30" class="box"></div>
-
+      <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
       <!-- 20 -->
@@ -41,12 +39,77 @@
       <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
-
-      <div id="29" class="box"></div>
-      <div id="28" class="box"></div>
-
+      <div class="wall"></div>
+      <div class="wall"></div>
       <div class="wall"></div>
       <!-- 40 -->
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <!-- 60 -->
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+
+      <div id="32" class="box"></div>
+
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <!-- 80 -->
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+
+      <div id="31" class="box"></div>
+      <div id="30" class="box"></div>
+
+      <div class="wall"></div>
+      <!-- 100 -->
       <div id="1" class="box active"></div>
       <div id="2" class="box"></div>
       <div id="3" class="box"></div>
@@ -67,9 +130,9 @@
       <div class="wall"></div>
       <div class="wall"></div>
 
-      <div id="27" class="box"></div>
-      <div id="26" class="box"></div>
-      <!-- 60 -->
+      <div id="29" class="box"></div>
+      <div id="28" class="box"></div>
+      <!-- 120 -->
       <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
@@ -94,8 +157,8 @@
       <div class="wall"></div>
       <div class="wall"></div>
 
-      <div id="25" class="box"></div>
-      <!-- 80 -->
+      <div id="27" class="box"></div>
+      <!-- 140 -->
       <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
@@ -116,10 +179,10 @@
       <div class="wall"></div>
       <div class="wall"></div>
 
-      <div id="22" class="box"></div>
-      <div id="23" class="box"></div>
       <div id="24" class="box"></div>
-      <!-- 100 -->
+      <div id="25" class="box"></div>
+      <div id="26" class="box"></div>
+      <!-- 160 -->
       <div class="wall"></div>
       <div class="wall"></div>
       <div class="wall"></div>
@@ -134,11 +197,36 @@
       <div class="wall"></div>
 
       <div id="16" class="box"></div>
+
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+
+      <div id="23" class="box"></div>
+
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <!-- 180 -->
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+      <div class="wall"></div>
+
       <div id="17" class="box"></div>
       <div id="18" class="box"></div>
       <div id="19" class="box"></div>
       <div id="20" class="box"></div>
       <div id="21" class="box"></div>
+      <div id="22" class="box"></div>
     </div>
   </div>
 </template>
@@ -173,21 +261,22 @@ export default {
           if (next) {
             next.classList.add('active')
             player.classList.remove('active')
-            if (player.id === '29') {
+            if (player.id === '31') {
               this.$confirm(`Woow you made ${this.points} points`).then(() => {
-                location.reload()
+                this.$store.state.normalMode = true
+                this.$store.state.dialogOne = true
               })
             }
             if (player.id === '1') {
               this.$store.state.points += Math.floor(Math.random() * 101)
               this.$alert(`I moved to Berlin`)
             } else if (player.id === '6') {
-              this.$store.state.points += Math.floor(Math.random() * 51)
+              this.$store.state.points += Math.floor(Math.random() * 501)
               this.$alert(`I Learn how to code`)
-            } else if (player.id === '16') {
+            } else if (player.id === '17') {
               this.$store.state.points += Math.floor(Math.random() * 401)
               this.$alert(`I did my first App`)
-            } else if (player.id === '25') {
+            } else if (player.id === '27') {
               this.$store.state.points += Math.floor(Math.random() * 1001)
               this.$alert(`I started to work as a teacher assistant at LW`)
             }
@@ -207,8 +296,10 @@ export default {
 </script>
 
 <style scoped>
+  @media (max-width: 767px) {
 
-  @media (min-width: 768px) and (max-width: 1440px) {
+  }
+  @media (min-width: 768px) and (max-width: 979px) {
     #game-me {
       position: absolute;
       top: 0;
@@ -231,12 +322,48 @@ export default {
       margin-top: 90px;
     }
     .box {
-      height: 50px;
-      width: 50px;
+      height: auto;
+      width: auto;
     }
     .wall {
-      height: 50px;
-      width: 50px;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 980px) and (max-width: 1440px) {
+    .game-board {
+      width: inherit;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(20, auto);
+      grid-template-rows: repeat(14, auto);
+    }
+    #game-me {
+      position: absolute;
+      width: inherit;
+      top: 0;
+      z-index: -1;
+      background-image: url(../../assets/map.png);
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #player div.active {
+      background-image: url(../../assets/mebit.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .box {
+      height: auto;
+      width: auto;
+    }
+    .wall {
+      height: auto;
+      width: auto;
     }
   }
 
@@ -244,30 +371,36 @@ export default {
     #game-me {
       position: absolute;
       top: 0;
+      left: 0;
       z-index: -1;
       background-image: url(../../assets/map.png);
-      background-size: contain;
-      width: 1440px;
+      background-size: cover;
+      display: flex;
+      align-items: center;
       height: 100vh;
+      width: 100%;
       background-repeat: no-repeat;
+      background-position: center;
     }
     .game-board {
       display: grid;
-      grid-template-columns: repeat(20, 70px);
-      margin-top: 140px;
+      grid-template-columns: repeat(20, auto);
+      grid-template-rows: repeat(14, auto);
+      width: inherit;
+      height: 100%;
     }
     canvas {
-      margin-top: 140px;
-      width: 1440px;
+      /*margin-top: 140px;*/
+      width: 100%;
       height: 100vh;
     }
     .box {
-      height: 70px;
-      width: 70px;
+      height: auto;
+      width: auto;
     }
     .wall {
-      height: 70px;
-      width: 70px;
+      height: auto;
+      width: auto;
     }
     #player div.active {
       background-image: url(../../assets/mebit.png);
