@@ -9,21 +9,21 @@
       </div>
       <div class="menu-link-lg">
         <ul class="d-flex">
-          <a href="/#" class="mx-4">
+          <a href="/#" class="mx-4" @click.prevent="work">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
               <p v-if="darkMode" :class="{ workActive }">Work</p>
               <p v-else :class="{ workActive }" style="color: #1e1f2b;">Work</p>
               <hr :class="{ workActive }">
             </li>
           </a>
-          <div class="mx-4" @click.prevent="open()">
+          <div class="mx-4" @click.prevent="open">
             <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
               <p v-if="darkMode" :class="{ aboutActive }">About</p>
               <p v-else :class="{ aboutActive }" style="color: #1e1f2b;">About</p>
               <hr :class="{ aboutActive }">
             </li>
           </div>
-          <a href="/#" class="mx-4" @click.prevent="contact()">
+          <a href="/#" class="mx-4" @click.prevent="contact">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
               <p v-if="darkMode" :class="{ contactActive }">Contact</p>
               <p v-else :class="{ contactActive }" style="color: #1e1f2b;">Contact</p>
@@ -84,8 +84,9 @@ export default {
     open () {
       this.$store.state.modal = true
       this.$store.state.about = true
-      if (this.$store.state.contact === true) {
+      if (this.$store.state.contact === true || this.$store.state.workmodal === true) {
         this.$store.state.contact = false
+        this.$store.state.workmodal = false
       }
     },
     contact () {
@@ -93,7 +94,16 @@ export default {
         this.$store.state.modal = true
       }
       this.$store.state.about = false
+      this.$store.state.workmodal = false
       this.$store.state.contact = true
+    },
+    work () {
+      if (this.$store.state.modal === false) {
+        this.$store.state.modal = true
+      }
+      this.$store.state.about = false
+      this.$store.state.contact = false
+      this.$store.state.workmodal = true
     },
     counter () {
       this.count += 1
