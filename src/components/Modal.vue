@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     close () {
-      this.$store.state.about = false
+      this.$store.state.modal = false
     }
   }
 }

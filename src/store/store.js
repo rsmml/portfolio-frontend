@@ -7,7 +7,7 @@ export const store = new Vuex.Store({
   state: {
     windowWidth: window.innerWidth,
     darkMode: true,
-    about: false,
+    modal: false,
     bit: true,
     play: false,
     normalMode: true,

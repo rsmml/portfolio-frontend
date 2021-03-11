@@ -82,7 +82,7 @@ export default {
       }
     },
     open () {
-      this.$store.state.about = true
+      this.$store.state.modal = true
     },
     counter () {
       this.count += 1

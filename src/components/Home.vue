@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <About v-if="about"/>
+    <Modal v-if="modal"/>
     <Review />
     <button v-if="normal && !mobileView" class="btn btn-outline-light play-btn" @click="play">I just want to Play</button>
     <footer v-if="normal && !mobileView" class="d-flex justify-content-between align-items-center">
@@ -37,7 +37,7 @@ import baffle from 'baffle'
 import SvgTitle from './SvgTitle'
 import NightMode from './NightMode'
 import SvgTitleDark from './SvgTitleDark'
-import About from './About'
+import Modal from './Modal'
 import Bit from './Bit'
 import Review from './Review'
 import { bus } from '../main'
@@ -54,7 +54,7 @@ export default {
     SvgTitle,
     NightMode,
     SvgTitleDark,
-    About,
+    Modal,
     Bit,
     Review
   },
@@ -70,19 +70,19 @@ export default {
     bus.$on('reaload', (data) => {
       this.componentKey += data
     })
-    bus.$on('close', (data) => {
-      this.about = data
-    })
-    bus.$on('open', (data) => {
-      this.about = data
-    })
+    // bus.$on('close', (data) => {
+    //   this.modal = data
+    // })
+    // bus.$on('open', (data) => {
+    //   this.modal = data
+    // })
   },
   computed: {
     darkMode () {
       return this.$store.state.darkMode
     },
-    about () {
-      return this.$store.state.about
+    modal () {
+      return this.$store.state.modal
     },
     normal () {
       return this.$store.state.normalMode
@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     open () {
-      this.$store.state.about = true
+      this.$store.state.modal = true
     },
     play () {
       this.$store.state.normalMode = false
