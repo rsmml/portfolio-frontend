@@ -92,6 +92,10 @@ export default {
     width: 23px !important;
     font-size: 20px !important;
   }
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
   /*Small devices ( < 576px )*/
   @media (max-width: 576px) {
   }

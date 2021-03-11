@@ -32,6 +32,8 @@ import router from './router'
 import { store } from './store/store'
 // Anime.js
 import VueAnime from 'vue-animejs'
+// Copy Clipboard
+import Clipboard from 'v-clipboard'
 
 // Font Awesome
 library.add(faSpinner,
@@ -65,6 +67,8 @@ Vue.use(Vuex)
 Vue.use(VueSimpleAlert)
 // Anime.js
 Vue.use(VueAnime)
+// Clipboard
+Vue.use(Clipboard)
 
 Vue.config.productionTip = false
 
