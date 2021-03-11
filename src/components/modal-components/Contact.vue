@@ -14,10 +14,37 @@
       </div>
       <div class="d-flex justify-content-start align-items-center my-4">
         <font-awesome-icon class="my-0 mr-4" :icon="['fab', 'linkedin-in']" />
-        <a href="https://www.linkedin.com/in/rodrigosommacal">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/rodrigosommacal" target="_blank">LinkedIn</a>
       </div>
     </div>
-    <div class="right-card"></div>
+    <div class="right-card">
+      <form>
+        <div class="form-group d-flex justify-content-between align-items-center">
+          <div class="">
+            <label for="formGroupExampleInput">First Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="John">
+          </div>
+          <div>
+            <label for="formGroupExampleInput">Last Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-between align-items-center">
+          <div class="">
+            <label for="formGroupExampleInput">Company Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Google">
+          </div>
+          <div>
+            <label for="formGroupExampleInput">Phone Number</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+01 234 5678 9101">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Message</label>
+          <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -39,6 +66,7 @@ export default {
   @media (min-width: 768px) and (max-width: 1440px) {
     #contact {
       height: inherit;
+      display: flex
     }
     .left-card {
       text-align: left;
@@ -67,6 +95,12 @@ export default {
       border-bottom: 6px solid #dd3e83;
       padding-bottom: 6px;
       width: max-content;
+    }
+    .right-card {
+      text-align: left;
+      padding: 60px;
+      width: 56%;
+      height: inherit;
     }
   }
   @media (min-width: 1441px) {
