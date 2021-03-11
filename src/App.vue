@@ -17,7 +17,7 @@
     >
       <router-view/>
     </transition>
-    <MediaBtns v-if="!mobileView" />
+    <MediaBtns v-if="!mobileView && normalMode" />
   </div>
 </template>
 
@@ -72,6 +72,9 @@ export default {
     },
     showNav () {
       return this.$store.state.showNav
+    },
+    normalMode () {
+      return this.$store.state.normalMode
     }
   }
 }

@@ -5,27 +5,27 @@
         <p class="text-review">Help me to grow! your feedback is more than welcome</p>
         <p class="text-review"><strong>what is your impression of this portfolio?</strong></p>
         <div class="faces d-flex justify-content-around align-items-center w-100">
-          <div @click="openInput" class="icon">
+          <div @click="openInput(1)" class="icon">
             <!-- <font-awesome-icon icon="poo" /> -->
             <p class="emogi">👎</p>
             <p>Indifferent</p>
           </div>
-          <div @click="openInput" class="icon">
+          <div @click="openInput(2)" class="icon">
             <!-- <font-awesome-icon icon="meh" /> -->
             <p class="emogi">😕</p>
             <p>Meh</p>
           </div>
-          <div @click="click" class="icon">
+          <div @click="click(3)" class="icon">
             <!-- <font-awesome-icon icon="grin-tears" /> -->
             <p class="emogi">😂</p>
             <p>Funny</p>
           </div>
-          <div @click="click" class="icon">
+          <div @click="click(4)" class="icon">
             <!-- <font-awesome-icon icon="grin-hearts" /> -->
             <p class="emogi">😍</p>
             <p>Creative</p>
           </div>
-          <div @click="click" class="icon">
+          <div @click="click(5)" class="icon">
             <!-- <font-awesome-icon icon="heart" /> -->
             <p class="emogi">❤️‍</p>
             <p>Love it</p>
@@ -58,13 +58,15 @@ export default {
     return {
       clicked: false,
       display: false,
-      indifferent: false
+      indifferent: false,
+      feedback: ''
     }
   },
   methods: {
-    click () {
+    click (data) {
       this.clicked = true
       this.indifferent = false
+      this.feedback = data
     },
     open () {
       this.display = !this.display

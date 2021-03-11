@@ -3,9 +3,9 @@
     <div class="close-icon text-right" @click="close()">
       <font-awesome-icon icon="times"/>
     </div>
-    <About />
-    <!-- <Work /> -->
-    <Contact />
+    <About  v-if="about"/>
+    <Work  v-if="work"/>
+    <Contact  v-if="contact"/>
   </div>
 </template>
 
@@ -23,6 +23,20 @@ export default {
   methods: {
     close () {
       this.$store.state.modal = false
+      this.$store.state.about = false
+      this.$store.state.contact = false
+      this.$store.state.workmodal = false
+    }
+  },
+  computed: {
+    about () {
+      return this.$store.state.about
+    },
+    work () {
+      return this.$store.state.workmodal
+    },
+    contact () {
+      return this.$store.state.contact
     }
   }
 }
@@ -40,6 +54,7 @@ export default {
     #modal {
       position: absolute;
       width: 80vw;
+      top: 10%;
       height: max-content;
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
@@ -47,6 +62,7 @@ export default {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right;
+      z-index: 3;
     }
     svg.fa-times {
       color: #1e1f2b;
@@ -63,10 +79,10 @@ export default {
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
       border-radius: 4px;
-      /*background-image: url(../assets/back-about-01.png);*/
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right;
+      z-index: 3;
     }
     svg.fa-times {
       color: #1e1f2b;
@@ -83,10 +99,10 @@ export default {
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
       border-radius: 4px;
-      /*background-image: url(../assets/back-about-01.png);*/
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right;
+      z-index: 3;
     }
     svg.fa-times {
       color: #1e1f2b;

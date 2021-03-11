@@ -11,6 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+// Material Design
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 // Animate.css
 import 'animate.css'
 // Nes.css
@@ -28,6 +32,8 @@ import router from './router'
 import { store } from './store/store'
 // Anime.js
 import VueAnime from 'vue-animejs'
+// Copy Clipboard
+import Clipboard from 'v-clipboard'
 
 // Font Awesome
 library.add(faSpinner,
@@ -49,6 +55,8 @@ library.add(faSpinner,
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
+// Material Design
+Vue.use(VueMaterial)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 // Axios
@@ -59,6 +67,8 @@ Vue.use(Vuex)
 Vue.use(VueSimpleAlert)
 // Anime.js
 Vue.use(VueAnime)
+// Clipboard
+Vue.use(Clipboard)
 
 Vue.config.productionTip = false
 

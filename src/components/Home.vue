@@ -70,12 +70,6 @@ export default {
     bus.$on('reaload', (data) => {
       this.componentKey += data
     })
-    // bus.$on('close', (data) => {
-    //   this.modal = data
-    // })
-    // bus.$on('open', (data) => {
-    //   this.modal = data
-    // })
   },
   computed: {
     darkMode () {
@@ -98,6 +92,8 @@ export default {
     open () {
       this.$store.state.modal = true
       this.$store.state.about = true
+      this.$store.state.contact = false
+      this.$store.state.workmodal = false
     },
     play () {
       this.$store.state.normalMode = false

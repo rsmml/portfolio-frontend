@@ -9,21 +9,24 @@
       </div>
       <div class="menu-link-lg flex-grow-1">
         <ul class="d-flex flex-column">
-          <div class="mx-4">
+          <div class="mx-4" @click.prevent="work">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
-              <p :class="{ workActive }">Work</p>
+              <p v-if="darkMode" :class="{ workActive }" style="color: white;">Work</p>
+              <p v-else :class="{ workActive }" style="color: #1e1f2b;">Work</p>
               <hr :class="{ workActive }">
             </li>
           </div>
           <div class="mx-4" @click.prevent="open">
             <li @mouseover="aboutActive = true" @mouseleave="aboutActive = false">
-              <p :class="{ aboutActive }">About</p>
+              <p v-if="darkMode" :class="{ aboutActive }" style="color: white;">About</p>
+              <p v-else :class="{ aboutActive }" style="color: #1e1f2b;">About</p>
               <hr :class="{ aboutActive }">
             </li>
           </div>
-          <div class="mx-4">
+          <div class="mx-4" @click.prevent="contact">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
-              <p :class="{ contactActive }">Contact</p>
+              <p v-if="darkMode" :class="{ contactActive }" style="color: white;">Contact</p>
+              <p v-else :class="{ contactActive }" style="color: #1e1f2b;">Contact</p>
               <hr :class="{ contactActive }">
             </li>
           </div>
@@ -66,6 +69,22 @@ export default {
     open () {
       this.$store.state.modal = true
       this.$store.state.about = true
+      this.$store.state.contact = false
+      this.$store.state.workmodal = false
+      this.$store.state.showNav = !this.$store.state.showNav
+    },
+    work () {
+      this.$store.state.modal = true
+      this.$store.state.about = false
+      this.$store.state.contact = false
+      this.$store.state.workmodal = true
+      this.$store.state.showNav = !this.$store.state.showNav
+    },
+    contact () {
+      this.$store.state.modal = true
+      this.$store.state.about = false
+      this.$store.state.contact = true
+      this.$store.state.workmodal = false
       this.$store.state.showNav = !this.$store.state.showNav
     }
   },
@@ -171,7 +190,7 @@ export default {
     margin-right: 24px;
     transition: 2s ease;
   }
-  ul p {
-    color: #ffffff;
-  }
+ /* ul p {
+    color: white;
+  }*/
 </style>

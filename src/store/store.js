@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
     executed: false,
     about: false,
     contact: false,
-    myWorks: false
+    workmodal: false
   },
 
   mutations: {
