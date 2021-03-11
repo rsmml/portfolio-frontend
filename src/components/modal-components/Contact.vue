@@ -21,7 +21,7 @@
     </div>
     <div v-if="mobileView" class="d-flex justify-content-start align-items-center">
       <div class="my-4">
-        <p class="m-0 mx-3 hover-cursor" v-if="!copied" @click="copy">Copy E-mail</p>
+        <p class="m-0 mx-3 hover-cursor" v-if="!copied" @click="copy">Copy my e-mail</p>
         <p class="m-0 mx-3 animate__animated animate__rubberBand hover-cursor" v-if="copied">copied ✔️</p>
       </div>
       <div class="my-4">

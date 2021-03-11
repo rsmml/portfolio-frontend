@@ -25,8 +25,8 @@ export default {
   },
   data () {
     return {
-      workA: true,
-      workB: false
+      workA: false,
+      workB: true
     }
   },
   methods: {
@@ -44,7 +44,32 @@ export default {
 
 <style scoped>
   @media (max-width: 767px) {
-
+    #work {
+      padding: 20px;
+    }
+    p.my-work {
+      font-weight: bolder;
+      font-size: 12px;
+      border-bottom: 4px solid #dd3e83;
+      padding-bottom: 4px;
+      width: max-content;
+    }
+    p.active {
+      color: #ff218e !important;
+      -webkit-text-stroke-width: 0 !important;
+      -webkit-text-stroke-color: transparent !important;
+    }
+    p.toggle {
+      font-size: 30px;
+      color: #232638;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    p.toggle:hover {
+      color: #ff218e;
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
   }
   @media (min-width: 768px) and (max-width: 1440px) {
     #work {
@@ -56,6 +81,26 @@ export default {
       border-bottom: 6px solid #dd3e83;
       padding-bottom: 6px;
       width: max-content;
+    }
+    p.active {
+      color: #ff218e !important;
+      -webkit-text-stroke-width: 0 !important;
+      -webkit-text-stroke-color: transparent !important;
+    }
+    p.toggle {
+      font-size: 60px;
+      color: white;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    p.toggle:hover {
+      color: #ff218e;
+      opacity: 0.7;
+      transform: scale(1.05);
+      -webkit-text-stroke-width: 0 !important;
+      -webkit-text-stroke-color: transparent !important;
     }
   }
   @media (min-width: 1441px) {
