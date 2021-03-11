@@ -40,6 +40,7 @@ export default {
     #modal {
       position: absolute;
       width: 80vw;
+      top: 10%;
       height: max-content;
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;

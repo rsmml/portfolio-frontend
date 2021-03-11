@@ -17,33 +17,34 @@
         <a href="https://www.linkedin.com/in/rodrigosommacal" target="_blank">LinkedIn</a>
       </div>
     </div>
-    <div class="right-card">
-      <form>
+    <div class="right-card d-flex flex-column align-items-end">
+      <form class="flex-grow-1 w-100">
         <div class="form-group d-flex justify-content-between align-items-center">
-          <div class="">
-            <label for="formGroupExampleInput">First Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="John">
-          </div>
-          <div>
-            <label for="formGroupExampleInput">Last Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Smith">
-          </div>
+          <md-field class="mr-3">
+            <label>Name</label>
+            <md-input v-model="name" placeholder="Jhon"></md-input>
+          </md-field>
+          <md-field>
+            <label>Last Name</label>
+            <md-input v-model="lastName" placeholder="Smith"></md-input>
+          </md-field>
         </div>
         <div class="form-group d-flex justify-content-between align-items-center">
-          <div class="">
-            <label for="formGroupExampleInput">Company Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Google">
-          </div>
-          <div>
-            <label for="formGroupExampleInput">Phone Number</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+01 234 5678 9101">
-          </div>
+          <md-field class="mr-3">
+            <label>Company</label>
+            <md-input v-model="company" placeholder="Google Inc"></md-input>
+          </md-field>
+          <md-field>
+            <label>E-mail</label>
+            <md-input v-model="email" placeholder="jhonsmith@gmail.com"></md-input>
+          </md-field>
         </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Message</label>
-          <textarea class="form-control" aria-label="With textarea"></textarea>
-        </div>
+        <md-field>
+          <label>Message</label>
+          <md-textarea v-model="message" md-autogrow></md-textarea>
+        </md-field>
       </form>
+      <md-button class="md-raised">Send</md-button>
     </div>
   </div>
 </template>
@@ -51,6 +52,15 @@
 <script>
 export default {
   name: 'Contact',
+  data () {
+    return {
+      name: '',
+      lastName: '',
+      copmany: '',
+      email: '',
+      message: ''
+    }
+  },
   computed: {
     contact () {
       return this.$store.state.contact
@@ -81,8 +91,8 @@ export default {
       background-size: cover;
     }
     a {
-      color: white;
-      text-decoration: none;
+      color: white !important;
+      text-decoration: none !important;
       transition: 0.3s ease;
     }
     a:hover {
