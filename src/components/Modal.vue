@@ -23,6 +23,9 @@ export default {
   methods: {
     close () {
       this.$store.state.modal = false
+      this.$store.state.about = false
+      this.$store.state.contact = false
+      this.$store.state.workmodal = false
     }
   },
   computed: {

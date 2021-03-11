@@ -84,7 +84,17 @@ export default {
 
 <style scoped>
   @media (max-width: 767px) {
-
+    #contact {
+      position: absolute;
+      width: 80vw;
+      height: max-content;
+      background-color: #f9fcfc;
+      box-shadow: 0 2px 50px #1e1f2b;
+      border-radius: 4px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+    }
   }
   @media (min-width: 768px) and (max-width: 1440px) {
     #contact {

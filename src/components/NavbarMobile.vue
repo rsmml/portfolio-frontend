@@ -9,7 +9,7 @@
       </div>
       <div class="menu-link-lg flex-grow-1">
         <ul class="d-flex flex-column">
-          <div class="mx-4">
+          <div class="mx-4" @click.prevent="work">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">
               <p :class="{ workActive }">Work</p>
               <hr :class="{ workActive }">
@@ -21,7 +21,7 @@
               <hr :class="{ aboutActive }">
             </li>
           </div>
-          <div class="mx-4">
+          <div class="mx-4" @click.prevent="contact">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
               <p :class="{ contactActive }">Contact</p>
               <hr :class="{ contactActive }">
@@ -66,6 +66,22 @@ export default {
     open () {
       this.$store.state.modal = true
       this.$store.state.about = true
+      this.$store.state.contact = false
+      this.$store.state.workmodal = false
+      this.$store.state.showNav = !this.$store.state.showNav
+    },
+    work () {
+      this.$store.state.modal = true
+      this.$store.state.about = false
+      this.$store.state.contact = false
+      this.$store.state.workmodal = true
+      this.$store.state.showNav = !this.$store.state.showNav
+    },
+    contact () {
+      this.$store.state.modal = true
+      this.$store.state.about = false
+      this.$store.state.contact = true
+      this.$store.state.workmodal = false
       this.$store.state.showNav = !this.$store.state.showNav
     }
   },
