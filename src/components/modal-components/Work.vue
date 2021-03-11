@@ -45,6 +45,7 @@ export default {
 <style scoped>
   @media (max-width: 767px) {
     #work {
+      height: inherit;
       padding: 20px;
     }
     p.my-work {
@@ -73,6 +74,7 @@ export default {
   }
   @media (min-width: 768px) and (max-width: 1440px) {
     #work {
+      height: inherit;
       padding: 60px;
     }
     p.my-work {
@@ -105,6 +107,7 @@ export default {
   }
   @media (min-width: 1441px) {
     #work {
+      height: inherit;
       padding: 60px;
     }
     p.my-work {
