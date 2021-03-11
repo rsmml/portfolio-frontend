@@ -8,37 +8,42 @@
           <div @click="openInput(1)" class="icon">
             <!-- <font-awesome-icon icon="poo" /> -->
             <p class="emogi">👎</p>
-            <p>Indifferent</p>
+            <p v-if="!clicked">Indifferent</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.one }}%</p>
           </div>
           <div @click="openInput(2)" class="icon">
             <!-- <font-awesome-icon icon="meh" /> -->
             <p class="emogi">😕</p>
-            <p>Meh</p>
+            <p v-if="!clicked">Meh</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.two }}%</p>
           </div>
           <div @click="click(3)" class="icon">
             <!-- <font-awesome-icon icon="grin-tears" /> -->
             <p class="emogi">😂</p>
-            <p>Funny</p>
+            <p v-if="!clicked">Funny</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.three }}%</p>
           </div>
           <div @click="click(4)" class="icon">
             <!-- <font-awesome-icon icon="grin-hearts" /> -->
             <p class="emogi">😍</p>
-            <p>Creative</p>
+            <p v-if="!clicked">Creative</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.four }}%</p>
           </div>
           <div @click="click(5)" class="icon">
             <!-- <font-awesome-icon icon="heart" /> -->
             <p class="emogi">❤️‍</p>
-            <p>Love it</p>
+            <p v-if="!clicked">Love it</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.five }}%</p>
           </div>
         </div>
         <div v-if="clicked" class="w-100 animate__animated animate__heartBeat">
           <p>🎉 THANK YOU 🎉</p>
         </div>
         <div v-if="indifferent" class="w-100 animate__animated animate__fadeIn">
-          <form class="d-flex justify-content-between align-items-end" @keyup.enter="click">
+          <form class="d-flex justify-content-between align-items-end" @keyup.enter="click(Math.floor(Math.random() * 2)+1)">
             <div class="form-group w-100 text-left">
               <label for="exampleInputEmail1">I'll like to read what you think about.</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
+              <input v-model="feedback" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
             </div>
             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
           </form>
@@ -52,6 +57,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Review',
   data () {
@@ -59,21 +66,54 @@ export default {
       clicked: false,
       display: false,
       indifferent: false,
-      feedback: ''
+      feedback: '',
+      one: '',
+      two: '',
+      three: '',
+      four: '',
+      five: ''
     }
   },
   methods: {
     click (data) {
-      this.clicked = true
-      this.indifferent = false
-      this.feedback = data
+      axios.post('https://rsmml-portfolio-eu.herokuapp.com/api/v1/reviews', {
+        value: data,
+        feedback: this.feedback
+      },
+      { withCredentials: true }
+      )
+        .then(response => this.created(response))
+        .catch(error => this.error(error))
+    },
+    created (response) {
+      if (!response) {
+        // eslint-disable-next-line
+        return
+      } else {
+        this.clicked = true
+        this.indifferent = false
+        this.average()
+      }
+    },
+    average () {
+      axios.get('https://rsmml-portfolio-eu.herokuapp.com/api/v1/reviews', { withCredentials: true })
+        .then(response => {
+          if (response) {
+            this.one = response.data.one.toFixed(0)
+            this.two = response.data.two.toFixed(0)
+            this.three = response.data.three.toFixed(0)
+            this.four = response.data.four.toFixed(0)
+            this.five = response.data.five.toFixed(0)
+          }
+        })
+        .catch(error => console.log(error))
     },
     open () {
       this.display = !this.display
       this.clicked = false
       this.indifferent = false
     },
-    openInput () {
+    openInput (data) {
       this.clicked = false
       this.indifferent = true
     }
