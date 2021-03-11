@@ -265,6 +265,7 @@ export default {
               this.$confirm(`Woow you made ${this.points} points`).then(() => {
                 this.$store.state.normalMode = true
                 this.$store.state.dialogOne = true
+                this.$store.state.points = 0
               })
             }
             if (player.id === '1') {

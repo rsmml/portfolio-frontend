@@ -160,12 +160,13 @@ export default {
   @media (min-width: 768px) and (max-width: 1440px) {
     #review {
       color: #202231;
-      width: 100%;
+      width: max-content;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
       position: absolute;
       bottom: 5%;
+      right: 0;
       padding: 0 12px;
       z-index: 1000;
     }

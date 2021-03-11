@@ -24,7 +24,7 @@
 
     <About v-if="about"/>
     <Review />
-    <button v-if="normal && !mobileView" class="btn btn-outline-light play-btn" @click="play">I Just came here to Play</button>
+    <button v-if="normal && !mobileView" class="btn btn-outline-light play-btn" @click="play">I just want to Play</button>
     <footer v-if="normal && !mobileView" class="d-flex justify-content-between align-items-center">
       <p class="m-2">This portfolio was made with <strong>Love</strong> ❤️ and a few 🐛</p>
       <p class="m-2">© 2021</p>

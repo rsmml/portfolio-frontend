@@ -9,7 +9,7 @@
       </div>
       <div>
         <h1>Rodrigo Sommacal.</h1>
-        <p class="text-gray text-shadow">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
+        <p class="text-gray text-shadow w-75">Hello there! My name is Rodrigo Sommacal. I'm a <strong>Full Stack Developer</strong> and Architect. I'm currently living in Berlin, DE, with the ambition to develop my career and the goal to work in the tech field.  I love to resolve problems as well as create nice user interfaces and experiences. I love all aspects of web development.</p>
         <div class="topics">
           <p class="ml-0 mr-4 my-2 text-small-bold">UI/UX</p>
           <p class="ml-0 mr-4 my-2 text-small-bold">FrontEnd</p>
@@ -166,8 +166,8 @@ export default {
   }
   @media (min-width: 768px) and (max-width: 1440px) {
     img {
-      height: 60px;
-      width: 60px;
+      height: 40px;
+      width: 40px;
       transition: 0.2s ease;
     }
     img:hover {
@@ -181,16 +181,16 @@ export default {
       background-color: #f9fcfc;
       box-shadow: 0 2px 50px #1e1f2b;
       border-radius: 4px;
-      /*background-image: url(../assets/back-about-01.png);*/
+      background-image: url(../assets/back-about-01.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right;
     }
     p.about {
       font-weight: bolder;
-      font-size: 18px;
+      font-size: 16px;
       border-bottom: 6px solid #dd3e83;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       width: max-content;
     }
     .card-left {
@@ -200,7 +200,8 @@ export default {
     h1 {
       font-weight: 900;
       text-align: start;
-      padding: 18px 0;
+      padding: 14px 0;
+      font-size: 30px;
     }
     p.text-gray {
       opacity: 0.8;
@@ -210,12 +211,13 @@ export default {
     p.text-small-bold {
       opacity: 0.8;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 16px;
     }
     h2 {
       font-weight: 900;
       text-align: start;
       padding: 18px 0;
+      font-size: 26px;
     }
     svg.fa-times {
       color: #1e1f2b;
@@ -236,13 +238,13 @@ export default {
       text-justify: inter-word;
     }
     .topics {
-      width: 100%;
+      width: 60%;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 24px;
+      /*grid-row-gap: 24px;*/
     }
     .skills {
-      width: 100%;
+      width: 52%;
       display: flex;
       justify-content: space-between;
       align-items: center
