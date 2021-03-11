@@ -40,7 +40,7 @@
           <p>🎉 THANK YOU 🎉</p>
         </div>
         <div v-if="indifferent" class="w-100 animate__animated animate__fadeIn">
-          <form class="d-flex justify-content-between align-items-end" @keyup.enter="click(Math.floor(Math.random() * 2)+1)">
+          <form class="d-flex justify-content-between align-items-end" @submit.prevent="click(Math.floor(Math.random() * 2)+1)">
             <div class="form-group w-100 text-left">
               <label for="exampleInputEmail1">I'll like to read what you think about.</label>
               <input v-model="feedback" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
