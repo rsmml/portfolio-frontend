@@ -187,7 +187,7 @@ export default {
     margin-right: 24px;
     transition: 2s ease;
   }
-  ul p {
-    color: #ffffff;
-  }
+  /*ul p {
+    color: ;
+  }*/
 </style>

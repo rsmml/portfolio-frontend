@@ -1,7 +1,7 @@
 <template>
   <div v-if="contact" id="contact" class="animate__animated animate__fadeIn">
 
-    <div class="left-card" :class="{ 'light' : !this.darkMode }">
+    <div v-if="!mobileView" class="left-card" :class="{ 'light' : !this.darkMode }">
       <div>
         <p class="contact">Contact</p>
       </div>
@@ -19,15 +19,24 @@
         <a href="https://www.linkedin.com/in/rodrigosommacal" target="_blank" :class="{ 'light' : !this.darkMode }" >LinkedIn</a>
       </div>
     </div>
+    <div v-if="mobileView" class="d-flex justify-content-start align-items-center">
+      <div class="my-4">
+        <p class="m-0 mx-3 hover-cursor" v-if="!copied" @click="copy">Copy E-mail</p>
+        <p class="m-0 mx-3 animate__animated animate__rubberBand hover-cursor" v-if="copied">copied ✔️</p>
+      </div>
+      <div class="my-4">
+        <a href="https://www.linkedin.com/in/rodrigosommacal" target="_blank" :class="{ 'light' : !this.darkMode }" >LinkedIn</a>
+      </div>
+    </div>
 
     <div class="right-card d-flex flex-column align-items-end">
       <form class="flex-grow-1 w-100">
         <div class="form-group m-0 row">
-          <md-field class="col-12 col-lg-6">
+          <md-field class="col-6 col-lg-6">
             <label>Name</label>
             <md-input v-model="name" placeholder="Jhon"></md-input>
           </md-field>
-          <md-field class="col-12 col-lg-6">
+          <md-field class="col-6 col-lg-6">
             <label>Last Name</label>
             <md-input v-model="lastName" placeholder="Smith"></md-input>
           </md-field>
@@ -39,7 +48,7 @@
           </md-field>
           <md-field class="col-12 col-lg-6">
             <label>E-mail</label>
-            <md-input v-model="email" placeholder="jhonsmith@gmail.com"></md-input>
+            <md-input v-model="email" placeholder="E-mail"></md-input>
           </md-field>
         </div>
         <md-field>
@@ -71,6 +80,9 @@ export default {
     },
     darkMode () {
       return this.$store.state.darkMode
+    },
+    mobileView () {
+      return this.$store.state.mobileView
     }
   },
   methods: {
@@ -94,6 +106,13 @@ export default {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right;
+      padding: 10px 20px;
+    }
+    a {
+      color: #5d5e5d !important;
+    }
+    a:hover {
+      cursor: pointer !important;
     }
   }
   @media (min-width: 768px) and (max-width: 1440px) {
