@@ -97,6 +97,7 @@ export default {
   methods: {
     open () {
       this.$store.state.modal = true
+      this.$store.state.about = true
     },
     play () {
       this.$store.state.normalMode = false

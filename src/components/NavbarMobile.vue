@@ -65,6 +65,7 @@ export default {
     },
     open () {
       this.$store.state.modal = true
+      this.$store.state.about = true
       this.$store.state.showNav = !this.$store.state.showNav
     }
   },

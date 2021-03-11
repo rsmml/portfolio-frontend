@@ -23,7 +23,7 @@
               <hr :class="{ aboutActive }">
             </li>
           </div>
-          <a href="/#" class="mx-4">
+          <a href="/#" class="mx-4" @click.prevent="contact()">
             <li @mouseover="contactActive = true" @mouseleave="contactActive = false">
               <p v-if="darkMode" :class="{ contactActive }">Contact</p>
               <p v-else :class="{ contactActive }" style="color: #1e1f2b;">Contact</p>
@@ -83,6 +83,17 @@ export default {
     },
     open () {
       this.$store.state.modal = true
+      this.$store.state.about = true
+      if (this.$store.state.contact === true) {
+        this.$store.state.contact = false
+      }
+    },
+    contact () {
+      if (this.$store.state.modal === false) {
+        this.$store.state.modal = true
+      }
+      this.$store.state.about = false
+      this.$store.state.contact = true
     },
     counter () {
       this.count += 1

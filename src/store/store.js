@@ -17,7 +17,10 @@ export const store = new Vuex.Store({
     points: 0,
     mobileView: false,
     showNav: false,
-    executed: false
+    executed: false,
+    about: false,
+    contact: false,
+    myWorks: false
   },
 
   mutations: {

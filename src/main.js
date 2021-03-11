@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faBars, faTimes, faArrowRight, faMoon, faSun, faCommentDots, faPoo, faMeh, faGrinTears, faGrinHearts, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faBars, faTimes, faArrowRight, faMoon, faSun, faCommentDots, faPoo, faMeh, faGrinTears, faGrinHearts, faHeart, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Bootstrap
@@ -43,7 +43,8 @@ library.add(faSpinner,
   faMeh,
   faGrinTears,
   faGrinHearts,
-  faHeart
+  faHeart,
+  faPaperPlane
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Make BootstrapVue available throughout your project
