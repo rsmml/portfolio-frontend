@@ -34,7 +34,7 @@
         <div class="form-group m-0 row">
           <md-field class="col-6 col-lg-6">
             <label>Name</label>
-            <md-input v-model="name" placeholder="Jhon"></md-input>
+            <md-input v-model="name" placeholder="John"></md-input>
           </md-field>
           <md-field class="col-6 col-lg-6">
             <label>Last Name</label>
