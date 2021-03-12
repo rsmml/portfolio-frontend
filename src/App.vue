@@ -27,6 +27,7 @@ import NavbarMobile from '@/components/NavbarMobile'
 import MediaBtns from '@/components/MediaBtns'
 import Background from '@/components/Background'
 import { bus } from './main'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -51,12 +52,18 @@ export default {
     },
     openNav () {
       this.$store.state.showNav = !this.$store.state.showNav
+    },
+    wakeUp () {
+      axios.get('https://rsmml-portfolio-eu.herokuapp.com/api/v1/reviews', { withCredentials: true })
+        .then(response => response)
+        .catch(error => console.log(error))
     }
   },
   created () {
     this.handleView()
     window.addEventListener('resize', this.handleView)
     this.componentKey += 1
+    this.wakeUp()
   },
   updated () {
     bus.$on('reload', (data) => {

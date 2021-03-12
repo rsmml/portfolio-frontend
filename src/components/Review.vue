@@ -108,6 +108,7 @@ export default {
   },
   methods: {
     click (data) {
+      this.clicked = true
       axios.post('https://rsmml-portfolio-eu.herokuapp.com/api/v1/reviews', {
         value: data,
         feedback: this.feedback
