@@ -4,7 +4,7 @@
       <div class="points animate__animated animate__headShake" v-if="display">
         <p class="text-review">Help me to grow! your feedback is more than welcome</p>
         <p class="text-review"><strong>what is your impression of this portfolio?</strong></p>
-        <div class="faces d-flex justify-content-around align-items-center w-100">
+        <div v-if="!mobileView" class="faces d-flex justify-content-around align-items-center w-100">
           <div @click="openInput(1)" class="icon">
             <!-- <font-awesome-icon icon="poo" /> -->
             <p class="emogi">👎</p>
@@ -36,16 +36,48 @@
             <p v-else class="animate__animated animate__fadeIn">{{ this.five }}%</p>
           </div>
         </div>
+        <div v-else class="faces d-flex justify-content-around align-items-center w-100">
+          <div @mouseover="openInput(1)" class="icon">
+            <!-- <font-awesome-icon icon="poo" /> -->
+            <p class="emogi">👎</p>
+            <p v-if="!clicked">Indifferent</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.one }}%</p>
+          </div>
+          <div @mouseover="openInput(2)" class="icon">
+            <!-- <font-awesome-icon icon="meh" /> -->
+            <p class="emogi">😕</p>
+            <p v-if="!clicked">Meh</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.two }}%</p>
+          </div>
+          <div @mouseover="click(3)" class="icon">
+            <!-- <font-awesome-icon icon="grin-tears" /> -->
+            <p class="emogi">😂</p>
+            <p v-if="!clicked">Funny</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.three }}%</p>
+          </div>
+          <div @mouseover="click(4)" class="icon">
+            <!-- <font-awesome-icon icon="grin-hearts" /> -->
+            <p class="emogi">😍</p>
+            <p v-if="!clicked">Creative</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.four }}%</p>
+          </div>
+          <div @mouseover="click(5)" class="icon">
+            <!-- <font-awesome-icon icon="heart" /> -->
+            <p class="emogi">❤️‍</p>
+            <p v-if="!clicked">Love it</p>
+            <p v-else class="animate__animated animate__fadeIn">{{ this.five }}%</p>
+          </div>
+        </div>
         <div v-if="clicked" class="w-100 animate__animated animate__heartBeat">
           <p>🎉 THANK YOU 🎉</p>
         </div>
         <div v-if="indifferent" class="w-100 animate__animated animate__fadeIn">
           <form class="d-flex justify-content-between align-items-end" @submit.prevent="click(Math.floor(Math.random() * 2)+1)">
-            <div class="form-group w-100 text-left">
+            <div class="form-group w-100 text-left mb-0">
               <label for="exampleInputEmail1">I'll like to read what you think about.</label>
-              <input v-model="feedback" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
+              <input v-model="feedback" type="text" class="form-control mb-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
             </div>
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <button v-if="mobileView" type="submit" class="btn btn-light">Submit</button>
           </form>
         </div>
       </div>
@@ -121,6 +153,9 @@ export default {
   computed: {
     normal () {
       return this.$store.state.normalMode
+    },
+    mobileView () {
+      return this.$store.state.mobileView
     }
   }
 }
@@ -130,7 +165,7 @@ export default {
   @media (max-width: 767px) {
     #review {
       color: #202231;
-      width: max-content;
+      width: 98%;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -158,6 +193,7 @@ export default {
     }
     p {
       font-weight: bolder;
+      font-size: 12px
     }
     p.text-review {
       text-align: start;

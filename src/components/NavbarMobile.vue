@@ -1,13 +1,13 @@
 <template>
   <div id="nav-mobile" >
-    <nav class="d-flex flex-column text-left align-items-center" :class="{'light': !this.darkMode}">
+    <nav class="d-flex flex-column text-left align-items-center justify-content-between" :class="{'light': !this.darkMode}">
       <div class="text-center">
         <router-link to="/" :class="{'light': !this.darkMode}">
           <img v-if="!this.darkMode" src="../assets/favicon.png" alt="RS" class="logo-sm m-3 animate__animated animate__bounce">
           <img v-else src="../assets/neon.png" alt="RS" class="logo-sm m-3 animate__animated animate__flash">
         </router-link>
       </div>
-      <div class="menu-link-lg flex-grow-1">
+      <div class="menu-link-lg">
         <ul class="d-flex flex-column">
           <div class="mx-4" @click.prevent="work">
             <li @mouseover="workActive = true" @mouseleave="workActive = false">

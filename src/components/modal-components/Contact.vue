@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     copy () {
-      this.$clipboard('rodrigosommacal@gmail.com')
+      this.$clipboard('contact@rodrigosommacal.com')
       this.copied = true
     }
   }
