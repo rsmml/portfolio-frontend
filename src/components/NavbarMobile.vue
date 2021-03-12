@@ -97,8 +97,11 @@ export default {
 </script>
 
 <style scoped>
-  img {
-    height: 40px;
+  img.logo-sm {
+    height: 40px !important;
+  }
+  img.logo-sm:hover {
+    cursor: pointer !important;
   }
   nav {
     width: max-content;
