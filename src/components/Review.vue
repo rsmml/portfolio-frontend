@@ -5,13 +5,13 @@
         <p class="text-review">Help me to grow! your feedback is more than welcome</p>
         <p class="text-review"><strong>what is your impression of this portfolio?</strong></p>
         <div v-if="!mobileView" class="faces d-flex justify-content-around align-items-center w-100">
-          <div @click="openInput(1)" class="icon">
+          <div @click="openInputOne" class="icon">
             <!-- <font-awesome-icon icon="poo" /> -->
             <p class="emogi">👎</p>
             <p v-if="!clicked">Indifferent</p>
             <p v-else class="animate__animated animate__fadeIn">{{ this.one }}%</p>
           </div>
-          <div @click="openInput(2)" class="icon">
+          <div @click="openInputTwo" class="icon">
             <!-- <font-awesome-icon icon="meh" /> -->
             <p class="emogi">😕</p>
             <p v-if="!clicked">Meh</p>
@@ -71,8 +71,9 @@
         <div v-if="clicked" class="w-100 animate__animated animate__heartBeat">
           <p>🎉 THANK YOU 🎉</p>
         </div>
+
         <div v-if="indifferent" class="w-100 animate__animated animate__fadeIn">
-          <form class="d-flex justify-content-between align-items-end" @submit.prevent="click(Math.floor(Math.random() * 2)+1)">
+          <form class="d-flex justify-content-between align-items-end" @submit.prevent="click(1)">
             <div class="form-group w-100 text-left mb-0">
               <label for="exampleInputEmail1">I'll like to read what you think about.</label>
               <input v-model="feedback" type="text" class="form-control mb-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
@@ -80,6 +81,17 @@
             <button v-if="mobileView" type="submit" class="btn btn-light">Submit</button>
           </form>
         </div>
+
+        <div v-if="meh" class="w-100 animate__animated animate__fadeIn">
+          <form class="d-flex justify-content-between align-items-end" @submit.prevent="click(2)">
+            <div class="form-group w-100 text-left mb-0">
+              <label for="exampleInputEmail1">I'll like to read what you think about.</label>
+              <input v-model="feedback" type="text" class="form-control mb-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Say something here.">
+            </div>
+            <button v-if="mobileView" type="submit" class="btn btn-light">Submit</button>
+          </form>
+        </div>
+
       </div>
       <div class="open" @click="open">
         <font-awesome-icon icon="comment-dots"/>
@@ -98,6 +110,7 @@ export default {
       clicked: false,
       display: false,
       indifferent: false,
+      meh: false,
       feedback: '',
       one: '',
       two: '',
@@ -145,10 +158,17 @@ export default {
       this.display = !this.display
       this.clicked = false
       this.indifferent = false
+      this.meh = false
     },
-    openInput (data) {
+    openInputOne () {
       this.clicked = false
       this.indifferent = true
+      this.meh = false
+    },
+    openInputTwo () {
+      this.clicked = false
+      this.meh = true
+      this.indifferent = false
     }
   },
   computed: {
