@@ -13,8 +13,12 @@
       </section>
     </div>
     <Dialog v-if="dialog"/>
-    <div id="options" @click="openDialog" v-if="!dialog">
-      <p class="nes-btn is-primary">Options</p>
+    <div id="options" v-if="!dialog" class="d-flex">
+      <div class="text-center flex-grow-1">
+        <button type="button" class="nes-btn is-primary" @click="playme('left')"> < </button>
+        <button type="button" class="nes-btn is-primary" @click="playme('right')"> > </button>
+      </div>
+      <p @click="openDialog" class="nes-btn is-primary">Options</p>
     </div>
   </div>
 </template>
@@ -56,6 +60,9 @@ export default {
     },
     openDialog () {
       this.$store.state.dialog = true
+    },
+    playme (data) {
+      this.$root.$refs.Game.playme(data)
     }
   }
 }

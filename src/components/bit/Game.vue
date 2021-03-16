@@ -237,7 +237,8 @@ export default {
   name: 'Game',
   data () {
     return {
-      id: 1
+      id: 1,
+      data: ''
     }
   },
   computed: {
@@ -250,47 +251,51 @@ export default {
   },
   created () {
     this.move()
+    this.$root.$refs.Game = this
   },
   methods: {
     move () {
       window.addEventListener('keydown', (e) => {
-        const player = document.querySelector(`#player .active`)
-        if (e.key === 'ArrowRight') {
-          this.id += 1
-          var next = document.getElementById(`${this.id}`)
-          if (next) {
-            next.classList.add('active')
-            player.classList.remove('active')
-            if (player.id === '31') {
-              this.$confirm(`Woow you made ${this.points} points`).then(() => {
-                this.$store.state.normalMode = true
-                this.$store.state.dialogOne = true
-                this.$store.state.points = 0
-              })
-            }
-            if (player.id === '1') {
-              this.$store.state.points += Math.floor(Math.random() * 101)
-              this.$alert(`I moved to Berlin`)
-            } else if (player.id === '6') {
-              this.$store.state.points += Math.floor(Math.random() * 501)
-              this.$alert(`I Learn how to code`)
-            } else if (player.id === '17') {
-              this.$store.state.points += Math.floor(Math.random() * 401)
-              this.$alert(`I did my first App`)
-            } else if (player.id === '27') {
-              this.$store.state.points += Math.floor(Math.random() * 1001)
-              this.$alert(`I started to work as a teacher assistant at LW`)
-            }
+        this.playme(e)
+      })
+    },
+    playme (data) {
+      const player = document.querySelector(`#player .active`)
+      if (data.key === 'ArrowRight' || data === 'right') {
+        this.id += 1
+        var next = document.getElementById(`${this.id}`)
+        if (next) {
+          next.classList.add('active')
+          player.classList.remove('active')
+          if (player.id === '31') {
+            this.$confirm(`Woow you made ${this.points} points`).then(() => {
+              this.$store.state.normalMode = true
+              this.$store.state.dialogOne = true
+              this.$store.state.points = 0
+            })
           }
-        } else if (e.key === 'ArrowLeft') {
-          this.id -= 1
-          var prev = document.getElementById(`${this.id}`)
-          if (prev) {
-            prev.classList.add('active')
-            player.classList.remove('active')
+          if (player.id === '1') {
+            this.$store.state.points += Math.floor(Math.random() * 101)
+            this.$alert(`I moved to Berlin`)
+          } else if (player.id === '6') {
+            this.$store.state.points += Math.floor(Math.random() * 501)
+            this.$alert(`I Learn how to code`)
+          } else if (player.id === '17') {
+            this.$store.state.points += Math.floor(Math.random() * 401)
+            this.$alert(`I did my first App`)
+          } else if (player.id === '27') {
+            this.$store.state.points += Math.floor(Math.random() * 1001)
+            this.$alert(`I started to work as a teacher assistant at LW`)
           }
         }
-      })
+      } else if (data.key === 'ArrowLeft' || data === 'left') {
+        this.id -= 1
+        var prev = document.getElementById(`${this.id}`)
+        if (prev) {
+          prev.classList.add('active')
+          player.classList.remove('active')
+        }
+      }
     }
   }
 }
