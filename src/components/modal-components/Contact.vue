@@ -56,7 +56,7 @@
           <md-textarea v-model="message" md-autogrow></md-textarea>
         </md-field>
       </form>
-      <md-button>Send Message</md-button>
+      <md-button disabled>Send Message</md-button>
     </div>
   </div>
 </template>
